@@ -13,6 +13,6 @@ Una última funcionalidad que tendría, sería la de guardar datos de búsquedas
 
 
 ## Contenido adicional 
-En esta semana he documentado el proceso que he seguido para realizar una configuración inicial tanto de git como de Git Hub. Se puede encontrar en el siguiente enlace:
+En esta semana he documentado el proceso que he seguido para realizar una configuración inicial tanto de git como de Git Hub. Se puede encontrar en el enlace de abajo:
 
 [Documentación](https://github.com/pabloalfaro/Car-finder/blob/main/Configuraci%C3%B3n%20inicial/configuracion.md)
