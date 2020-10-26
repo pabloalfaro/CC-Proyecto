@@ -1,0 +1,6 @@
+entidad:
+  - src/main/anuncio.go
+  - src/main/coche.go
+  - src/main/mensaje.go
+  - src/main/usuario.go
+  
