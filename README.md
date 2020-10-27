@@ -18,6 +18,13 @@ En mi caso he pensado en 4 posibles usuarios, estos son:
 - El desarrollador: [Desarrollador](https://github.com/pabloalfaro/Car-finder/milestone/5)
 
 
+## Documentación adicional
+- [Roadmap del proyecto] (https://github.com/pabloalfaro/Car-finder/blob/main/roadmap.md)
+- [Kanbas] (https://github.com/pabloalfaro/Car-finder/projects/1)
+- [Clases programadas] (https://github.com/pabloalfaro/Car-finder/tree/main/src/main)
+
+Las clases que he programado han sido una definición inicial de los objetos con los que voy a trabajar. Además, he definido los métodos get y set. Algunos de estos métodos tendré que eliminarlos porque hacen referencia a atributos inmutables. Hago referencia a esto en el [issue #19](https://github.com/pabloalfaro/Car-finder/issues/19).
+
 ## Contenido anterior
 Aquí dejo los links a los contenidos de las semanas anteriores:
 
