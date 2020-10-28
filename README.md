@@ -1,4 +1,4 @@
-# CC-Proyecto
+# Car finder
 Soy Pablo Alfaro, alumno de la asignatura de Cloud Computing del Máster en Ingeniería Informática de la Universidad de Granada. En este repositorio se encuentra el proyecto de la asignatura.
 
 
