@@ -28,15 +28,10 @@ func SetPrecioA (a Anuncio, p float32) {
 }
 
 
-//Get y set para Precio
+//Get para Coche
 func GetCocheA (a Anuncio) Coche{
   return a.coche
 }
-
-func SetCocheA (a Anuncio, c Coche) {
-  a.coche = c
-}
-
 
 //Get y set para km
 func GetKmA (a Anuncio) int{
