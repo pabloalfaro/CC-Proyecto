@@ -10,42 +10,26 @@ type Coche struct{
 
 }
 
-//Get y set para marca
+//Get para marca
 func GetMarcaC (c Coche) string{
   return c.marca
 }
 
-func SetMarcaC (c Coche, m string) {
-  c.marca = m
-}
 
-
-//Get y set para modelo
+//Get para modelo
 func GetModeloC (c Coche) string{
   return c.modelo
 }
 
-func SetModeloC (c Coche, m string) {
-  c.modelo = m
-}
 
-
-//Get y set para serie
+//Get para serie
 func GetSerieC (c Coche) string{
   return c.serie
 }
 
-func SetSerieC (c Coche, s string) {
-  c.serie = s
-}
 
-
-//Get y set para potencia
+//Get para potencia
 func GetPotenciaC (c Coche) int{
   return c.potencia
-}
-
-func SetPotenciaC (c Coche, p int) {
-  c.potencia = p
 }
 

@@ -4,17 +4,20 @@ package main
 
 type Mensaje struct{
   comprador Usuario
+  anuncio Anuncio
   cuerpo string
   
 }
 
-//Get y set para nombre
-func GetCompradorM (m Mensaje) Usuario{
-  return m.comprador
+//Get para vendedor
+func GetAnuncioM (m Mensaje) Anuncio{
+  return m.anuncio
 }
 
-func SetCompradorM (m Mensaje, u Usuario) {
-  m.comprador = u
+
+//Get para comprador
+func GetCompradorM (m Mensaje) Usuario{
+  return m.comprador
 }
 
 
@@ -23,6 +26,4 @@ func GetCuerpoM (m Mensaje) string{
   return m.cuerpo
 }
 
-func SetCuerpoM (m Mensaje, c string) {
-  m.cuerpo = c
-}
+

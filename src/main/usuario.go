@@ -3,12 +3,19 @@ package main
 //import "fmt"
 
 type Usuario struct{
+  username string
   nombre string
   apellidos string
   correo string
   ciudad string
   
 }
+
+//Get para username
+func GetUsermane(u Usuario) string{
+  return u.username
+}
+
 
 //Get y set para nombre
 func GetNombreU (u Usuario) string{
