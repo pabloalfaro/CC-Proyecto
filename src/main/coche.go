@@ -10,6 +10,18 @@ type Coche struct{
 
 }
 
+
+func NewCoche (ma string, mo string, s string, p int) Coche{
+  var coche Coche
+  
+  coche.marca = ma
+  coche.modelo = mo
+  coche.serie = s
+  coche.potencia = p
+  
+  return coche
+}
+
 //Get para marca
 func GetMarcaC (c Coche) string{
   return c.marca
