@@ -11,8 +11,22 @@ type Usuario struct{
   
 }
 
+
+//Constructor de usuarios
+func NewUsuario (u string, n string, a string, co string, ci string) Usuario{
+  var usuario Usuario
+  
+  usuario.username = u
+  usuario.nombre = n
+  usuario.apellidos = a
+  usuario.correo = co
+  usuario.ciudad = ci
+  
+  return usuario
+}
+
 //Get para username
-func GetUsermane(u Usuario) string{
+func GetUsermaneU (u Usuario) string{
   return u.username
 }
 

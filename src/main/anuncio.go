@@ -14,9 +14,23 @@ type Anuncio struct{
 }
 
 func main(){
-
 }
 
+
+//Constructor anuncio
+func NewAnuncio (p float32, coc Coche, k int, e string, ciu string, d string, col string) Anuncio{
+  var anuncio Anuncio
+  
+  anuncio.precio = p
+  anuncio.coche = coc
+  anuncio.km = k
+  anuncio.estado = e
+  anuncio.ciudad = ciu
+  anuncio.descripcion = d
+  anuncio.color = col
+  
+  return anuncio
+}
 
 //Get y set para Precio
 func GetPrecioA (a Anuncio) float32{

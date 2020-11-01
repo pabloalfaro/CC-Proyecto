@@ -9,6 +9,18 @@ type Mensaje struct{
   
 }
 
+
+//Constructor de mensajes
+func NewMensaje (co Usuario, a Anuncio, cu string) Mensaje{
+  var mensaje Mensaje
+  
+  mensaje.comprador = co
+  mensaje.anuncio = a
+  mensaje.cuerpo = cu
+  
+  return mensaje
+}
+
 //Get para vendedor
 func GetAnuncioM (m Mensaje) Anuncio{
   return m.anuncio
