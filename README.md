@@ -20,11 +20,10 @@ En mi caso he pensado en 4 posibles usuarios, estos son:
 - [Roadmap del proyecto](https://github.com/pabloalfaro/Car-finder/blob/main/roadmap.md)
 - [Kanban](https://github.com/pabloalfaro/Car-finder/projects/1)
 - [Clases programadas](https://github.com/pabloalfaro/Car-finder/tree/main/src/main)
-- [Producto mínimamente viable 1] (https://github.com/pabloalfaro/Car-finder/milestone/3)
+- [Clases compiladas](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/verificaci%C3%B3n%20del%20c%C3%B3digo.png)
+- [Producto mínimamente viable 1](https://github.com/pabloalfaro/Car-finder/milestone/3)
+- [Issues relacionados con el Hito1 de la asignatura](https://github.com/pabloalfaro/Car-finder/milestone/2)
 
-- [Issues relacionados con el Hito1 de la asignatira] (https://github.com/pabloalfaro/Car-finder/milestone/2)
-
-Las clases que he programado han sido una definición inicial de los objetos con los que voy a trabajar. Además, he definido los métodos get y set. Algunos de estos métodos tendré que eliminarlos porque hacen referencia a atributos inmutables. Hago referencia a esto en el [issue #19](https://github.com/pabloalfaro/Car-finder/issues/19).
 
 ## Contenido anterior
 Aquí dejo los links a los contenidos de las semanas anteriores:
