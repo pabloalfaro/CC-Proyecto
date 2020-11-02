@@ -9,7 +9,7 @@ En cuanto a la arquitectura, me he decantado por una de microservicios. La venta
 
 ## Historias de usuario
 
-En mi caso he pensado en 4 posibles usuarios, estos son:
+En mi caso he pensado en 3 posibles usuarios, estos son:
 
 - El cliente que ha encargado el proyecto: [Cliente](https://github.com/pabloalfaro/Car-finder/issues?q=is%3Aissue+is%3Aopen+label%3Acliente)
 - El comprador de los coches: [Comprador](https://github.com/pabloalfaro/Car-finder/issues?q=is%3Aissue+is%3Aopen+label%3Acomprador)
