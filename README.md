@@ -18,6 +18,7 @@ En mi caso he pensado en 3 posibles usuarios, estos son:
 - El vendedor de los coches: [Vendedor](https://github.com/pabloalfaro/Car-finder/issues?q=is%3Aissue+is%3Aopen+label%3Avendedor)
 
 
+
 ## Documentación adicional
 - [Roadmap del proyecto](https://github.com/pabloalfaro/Car-finder/blob/main/roadmap.md)
 - [Kanban](https://github.com/pabloalfaro/Car-finder/projects/1)
