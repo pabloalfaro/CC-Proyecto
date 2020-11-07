@@ -1,6 +1,7 @@
-package main
+package anuncio
 
 //import "fmt"
+import "github.com/pabloalfaro/Car-finder/src/main"
 
 type Anuncio struct{
   precio float32
@@ -12,6 +13,7 @@ type Anuncio struct{
   color string
 
 }
+
 
 func main(){
 }
