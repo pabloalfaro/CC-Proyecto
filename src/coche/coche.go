@@ -1,4 +1,4 @@
-package main
+package coche
 
 //import "fmt"
 

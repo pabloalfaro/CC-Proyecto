@@ -1,7 +1,7 @@
 package anuncio
 
 //import "fmt"
-import "github.com/pabloalfaro/Car-finder/src/main"
+//import "github.com/pabloalfaro/Car-finder/src/coche"
 
 type Anuncio struct{
   precio float32
@@ -14,8 +14,9 @@ type Anuncio struct{
 
 }
 
+
 //Constructor anuncio
-func NewAnuncio (p float32, coc Coche, k int, e string, ciu string, d string, col string) Anuncio{
+func NewAnuncio(p float32, coc Coche, k int, e string, ciu string, d string, col string) Anuncio{
   var anuncio Anuncio
   
   anuncio.precio = p
