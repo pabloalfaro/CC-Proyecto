@@ -1,17 +1,19 @@
 package mensaje
 
-//import "fmt"
+import "github.com/pabloalfaro/Car-finder/src/usuario"
+import "github.com/pabloalfaro/Car-finder/src/anuncio"
+
 
 type Mensaje struct{
-  comprador Usuario
-  anuncio Anuncio
+  comprador usuario.Usuario
+  anuncio anuncio.Anuncio
   cuerpo string
   
 }
 
 
 //Constructor de mensajes
-func NewMensaje (co Usuario, a Anuncio, cu string) Mensaje{
+func NewMensaje (co usuario.Usuario, a anuncio.Anuncio, cu string) Mensaje{
   var mensaje Mensaje
   
   mensaje.comprador = co
@@ -22,13 +24,13 @@ func NewMensaje (co Usuario, a Anuncio, cu string) Mensaje{
 }
 
 //Get para vendedor
-func GetAnuncioM (m Mensaje) Anuncio{
+func GetAnuncioM (m Mensaje) anuncio.Anuncio{
   return m.anuncio
 }
 
 
 //Get para comprador
-func GetCompradorM (m Mensaje) Usuario{
+func GetCompradorM (m Mensaje) usuario.Usuario{
   return m.comprador
 }
 
