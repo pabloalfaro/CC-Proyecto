@@ -14,11 +14,6 @@ type Anuncio struct{
 
 }
 
-
-func main(){
-}
-
-
 //Constructor anuncio
 func NewAnuncio (p float32, coc Coche, k int, e string, ciu string, d string, col string) Anuncio{
   var anuncio Anuncio
