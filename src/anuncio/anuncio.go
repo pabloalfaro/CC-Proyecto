@@ -4,7 +4,7 @@ import "github.com/pabloalfaro/Car-finder/src/coche"
 
 type Anuncio struct{
   precio float32
-  coche Coche
+  coche coche.Coche
   km int
   estado string
   ciudad string
@@ -15,7 +15,7 @@ type Anuncio struct{
 
 
 //Constructor anuncio
-func NewAnuncio(p float32, coc Coche, k int, e string, ciu string, d string, col string) Anuncio{
+func NewAnuncio(p float32, coc coche.Coche, k int, e string, ciu string, d string, col string) Anuncio{
   var anuncio Anuncio
   
   anuncio.precio = p
@@ -40,7 +40,7 @@ func SetPrecioA (a Anuncio, p float32) {
 
 
 //Get para Coche
-func GetCocheA (a Anuncio) Coche{
+func GetCocheA (a Anuncio) coche.Coche{
   return a.coche
 }
 
