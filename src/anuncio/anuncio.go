@@ -1,7 +1,6 @@
 package anuncio
 
-//import "fmt"
-//import "github.com/pabloalfaro/Car-finder/src/coche"
+import "github.com/pabloalfaro/Car-finder/src/coche"
 
 type Anuncio struct{
   precio float32
