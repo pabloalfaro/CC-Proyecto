@@ -1,8 +1,10 @@
 package anuncio
 
 import "github.com/pabloalfaro/Car-finder/src/coche"
+import "github.com/pabloalfaro/Car-finder/src/usuario"
 
 type Anuncio struct{
+  usuario usuario.Usuario
   precio float32
   coche coche.Coche
   km int
@@ -15,9 +17,10 @@ type Anuncio struct{
 
 
 //Constructor anuncio
-func NewAnuncio(p float32, coc coche.Coche, k int, e string, ciu string, d string, col string) Anuncio{
+func NewAnuncio(u usuario.Usuario, p float32, coc coche.Coche, k int, e string, ciu string, d string, col string) Anuncio{
   var anuncio Anuncio
   
+  anuncio.usuario = u
   anuncio.precio = p
   anuncio.coche = coc
   anuncio.km = k
