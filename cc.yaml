@@ -1,5 +1,5 @@
 lenguaje: go
-gestor_tareas:
+fichero_tareas:
   - Makefile
 entidad:
   - src/anuncio/anuncio.go
