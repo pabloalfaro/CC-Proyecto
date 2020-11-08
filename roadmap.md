@@ -2,7 +2,7 @@
 
 Este documento se irá actualizando conforme avance el proyecto. De esta forma, se iran añadiendo las funcionalidades implementadas y los planes futuros. Las funcionalidades se irán agrupando en los diferentes *productos mínimamente viables*.
 
-## PMV 1 (Finalizado)
+## [PMV 1](https://github.com/pabloalfaro/Car-finder/milestone/3) (Finalizado)
 
 En primer lugar me planteé cuál era la funcionalidad más básica de la aplicación. En mi caso, es una aplicación de venta de coches por lo que llegué a la conclusión de que lo primero que debía hacer era añadir la funcionalidad de publicar anuncios. Esto forma parte de la siguiente historia de usuario: [HU Crear anuncios](https://github.com/pabloalfaro/Car-finder/issues/8).
 
@@ -10,7 +10,7 @@ La primera actividad relacionada con esa historia era la de crear las clases con
 
 Teniendo ya todo lo anterior programado, demostré que no había errores de compilacion con esta [imagen](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/verificaci%C3%B3n%20del%20c%C3%B3digo.png), esto forma parte del siguiente issue ([ISSUE demostrar clases compiladas](https://github.com/pabloalfaro/Car-finder/issues/22)).
 
-## PMV 2 (En desarrollo)
+## [PMV 2](https://github.com/pabloalfaro/Car-finder/milestone/4) (En desarrollo)
 
 En este punto sólo tenía una captura de las clases compiladas para verificar que el código no tiene errores, esto no es suficiente. Teniendo ya algunas clases creadas, habría que programar los tests para comprobar el buen funcionamiento de las mismas. Esta será la prioridad en esta etapa, una vez que tenga los test continuaré con las funcionalidades relacionadas con [HU Crear anuncios](https://github.com/pabloalfaro/Car-finder/issues/8).
 
