@@ -1,6 +1,12 @@
+lenguaje: go
+gestor_tareas:
+  - Makefile
 entidad:
-  - src/main/anuncio.go
-  - src/main/coche.go
-  - src/main/mensaje.go
-  - src/main/usuario.go
-  
+  - src/anuncio/anuncio.go
+  - src/coche/coche.go
+  - src/mensaje/mensaje.go
+  - src/usuario/usuario.go
+  - src/controlador/controlador.go
+test:
+  - test/main_test.go
+
