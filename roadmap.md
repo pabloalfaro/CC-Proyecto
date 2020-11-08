@@ -4,11 +4,11 @@ Este documento se irá actualizando conforme avance el proyecto. De esta forma, 
 
 ## PMV 1 (Finalizado)
 
-En primer lugar me planteé cúal era la funcionalidad más básica de la aplicación. En mi caso, es una aplicación de venta de coches por lo que llegué a la conclusión de que lo primero que debía hacer era añadir la funcionalidad de publicar anuncios. Esto forma parte de la siguiente historia de usuario: [HU Crear anuncios](https://github.com/pabloalfaro/Car-finder/issues/8).
+En primer lugar me planteé cuál era la funcionalidad más básica de la aplicación. En mi caso, es una aplicación de venta de coches por lo que llegué a la conclusión de que lo primero que debía hacer era añadir la funcionalidad de publicar anuncios. Esto forma parte de la siguiente historia de usuario: [HU Crear anuncios](https://github.com/pabloalfaro/Car-finder/issues/8).
 
 La primera actividad relacionada con esa historia era la de crear las clases con las que se iba a trabajar ([ISSUE crear las clases](https://github.com/pabloalfaro/Car-finder/issues/24)). Además, relacionado con lo anterior, añadí funcionalidades a las clases ([ISSUE añadir funcionalidad](https://github.com/pabloalfaro/Car-finder/issues/21)). Al princio creé todos los métodos get y set, pero no todos eran necesarios al haber variables inmutables ([ISSUE corregir métodos](https://github.com/pabloalfaro/Car-finder/issues/19)). 
 
-Teniendo ya todo lo anterior programado, demostré que no había errores de compilacion con esta [imágen](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/verificaci%C3%B3n%20del%20c%C3%B3digo.png), esto forma parte del siguiente issue ([ISSUE demostrar clases compiladas](https://github.com/pabloalfaro/Car-finder/issues/22)).
+Teniendo ya todo lo anterior programado, demostré que no había errores de compilacion con esta [imagen](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/verificaci%C3%B3n%20del%20c%C3%B3digo.png), esto forma parte del siguiente issue ([ISSUE demostrar clases compiladas](https://github.com/pabloalfaro/Car-finder/issues/22)).
 
 ## PMV 2 (En desarrollo)
 
