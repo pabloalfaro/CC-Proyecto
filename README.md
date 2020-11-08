@@ -2,12 +2,17 @@
 Soy Pablo Alfaro, alumno de la asignatura de Cloud Computing del Máster en Ingeniería Informática de la Universidad de Granada. En este repositorio se encuentra el proyecto de la asignatura.
 
 
-## Definición de arquitectura y lenguaje
-Para mi proyecto he decidido usar Go porque he visto que se utiliza mucho para el desarrollo web backend. Además, he visto que cubría mis necesidades, como por ejemplo la de tener que usar variables privadas.
+## Gestor de tareas
 
-Para decidir la arquitectura tengo antes que analizar la aplicación. En mi caso veo que voy a tener una serie de elementos diferenciados: la gestión de los usuarios, la de los anuncios, la de los distintos modelos de coches y por último la mensajería entre usuarios. Estos son los que componen la idea inicial del proyecto pero no descarto nuevas funcionalidades. Además, los elementos mencionados almacenarán datos diferentes, relacionados con las características que gestionen. Estos bloques tendrán que interactuar entre sí.
+Para mi proyecto he utilizado [Makefile](https://github.com/pabloalfaro/Car-finder/blob/main/Makefile). Me he decido por este gestor porque es uno de los más utilizados. Cualquiera que se encuentre con este tipo de ficheros sabe como uitilizar las instrucciones básicas sin tener que buscar información al respecto.
 
-Teniendo en cuenta lo anterior, me he decantado por una arquitectura de microservicios. De esta manera podría tener un servicio encargado de gestionar cada uno de los 4 bloques mencionados anteriormente. Estos servicios tendían su BD correspondiente en la que almacenarían los datos que gestionan. La ventaja que tiene trabajar con esta arquitectura en mi proyecto es la modularidad. Gracias a esto, si en un futuro necesito añadir nuevas funcionalidades me será sencillo. Los diferentes bloques necesitan interactuar entre sí, por lo que los servicios se tendrán que comunicar, en mi caso, de manera asíncrona.
+## Biblioteca de aserciones
+
+Mi proyecto está escrito en Go, que tiene su propia biblioteca de aserciones `testing`. He utilizado esta biblioteca porque es la primera vez que utilizo este lenguaje de programación y quiero intentar usar las herramientas propias de Go para estos casos. Además, he visto que existen otras bibliotecas pero de manera estandar se utiliza `testintg`.
+
+## Ejecución de los tests
+
+En este apartado ocurre algo parecido al anterior. Go tiene una manera propia de ejecutar los tests. Utilizando el comando `go test` ejecutas los test que tengas en el directorio dónde lo estés ejecutando. Otra manera de ejecutrarlos sería con `go test ./ruta_de_tests`, de esta manera puedes elegir el directorio dónde están los test que quieras ejecutar. Los archivos de Go de test se identifican porque tienen este tipo de nombres: `nombre_test.go`. Estos archivos puedes guardarlos junto con la clase que testean o los puedes guardar en otro directorio a parte. Go no permite normalmente que tengas ficheros de dos `package` distintos, pero con los tests hace una excepción.
 
 ## Historias de usuario
 
@@ -31,4 +36,5 @@ En mi caso he pensado en 3 posibles usuarios, estos son:
 ## Contenido anterior
 Aquí dejo los links a los contenidos de las semanas anteriores:
 
-- [Semana1](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema1.md)
+- [Tema 1](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema1.md)
+- [Tema 2](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema2.md)
