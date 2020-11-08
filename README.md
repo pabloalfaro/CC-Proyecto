@@ -27,9 +27,10 @@ En mi caso he pensado en 3 posibles usuarios, estos son:
 ## Documentación adicional
 - [Roadmap del proyecto](https://github.com/pabloalfaro/Car-finder/blob/main/roadmap.md)
 - [Kanban](https://github.com/pabloalfaro/Car-finder/projects/1)
-- [Clases programadas](https://github.com/pabloalfaro/Car-finder/tree/main/src/main)
-- [Clases compiladas](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/verificaci%C3%B3n%20del%20c%C3%B3digo.png)
-- [Producto mínimamente viable 1](https://github.com/pabloalfaro/Car-finder/milestone/3)
+- [Clases programadas](https://github.com/pabloalfaro/Car-finder/tree/main/src)
+- [Tests unitarios](https://github.com/pabloalfaro/Car-finder/tree/main/test)
+- [PMV 1](https://github.com/pabloalfaro/Car-finder/milestone/3)
+- [PMV 2](https://github.com/pabloalfaro/Car-finder/milestone/4)
 - [Issues relacionados con los Objetivos 1 de la asignatura](https://github.com/pabloalfaro/Car-finder/milestone/2)
 
 
