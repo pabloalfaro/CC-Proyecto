@@ -15,7 +15,7 @@ var Coches [] coche.Coche
 
 var Anuncios [] anuncio.Anuncio
 
-func main(){
+func Main(){
 	//Inicializo el map
 	Usuarios = make (map [string] usuario.Usuario)
 	
@@ -23,7 +23,7 @@ func main(){
 }
 
 //Devuelve un boolean igual a True si se ha hecho la inserción y False si no se ha podido hacer
-func nuevoUsuario (u string, n string, a string, co string, ci string) bool{
+func NuevoUsuario (u string, n string, a string, co string, ci string) bool{
   //Compruebo si ya existe un usuario con ese username
   _, ok := Usuarios[u]
   
@@ -41,7 +41,7 @@ func nuevoUsuario (u string, n string, a string, co string, ci string) bool{
 }
 
 
-func nuevoAnuncio (u usuario.Usuario, p float32, coc coche.Coche, k int, e string, ciu string, d string, col string) {
+func NuevoAnuncio (u usuario.Usuario, p float32, coc coche.Coche, k int, e string, ciu string, d string, col string) {
   var anun anuncio.Anuncio
   
 	anun = anuncio.NewAnuncio(u, p, coc, k, e, ciu, d, col)
