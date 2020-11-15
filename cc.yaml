@@ -8,5 +8,5 @@ entidad:
   - src/usuario/usuario.go
   - src/controlador/controlador.go
 test:
-  - test/main_test.go
+  - src/controlador/controlador_test.go
 
