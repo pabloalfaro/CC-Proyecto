@@ -1,19 +1,41 @@
-help:
-	echo "Acciones válidas: install build utest"
+all: install
 
 install:
-	go install github.com/pabloalfaro/Car-finder/src/anuncio
-	go install github.com/pabloalfaro/Car-finder/src/coche
-	go install github.com/pabloalfaro/Car-finder/src/controlador
-	go install github.com/pabloalfaro/Car-finder/src/mensaje
-	go install github.com/pabloalfaro/Car-finder/src/usuario
+	@for dir in $(GO_SRC_DIRS); do \
+		go install $$dir; \
+	done;
 	
-build:
-	go build ./src/controlador
-	go build ./src/anuncio
-	go build ./src/coche
-	go build ./src/mensaje
-	go build ./src/usuario
+help:
+	@echo "Acciones válidas:"
+	@echo "	-all"
+	@echo "	-install"
+	@echo "	-test"
+	@echo "	-fmt"
 
-utest: 
-	go test ./test
+
+# Lanzo los test con los resultados de la búsqueda de archivos de test
+test:
+	@for dir in $(GO_TEST_DIRS); do\
+		go test -v $$dir; \
+	done;
+	
+fmt: 
+	@for dir in $(GO_SRC_DIRS); do \
+		go fmt $$dir; \
+	done;
+
+# Busco los archivos .go
+GO_SRC_DIRS := $(shell \
+	find . -name "*.go" | \
+	xargs -I {} dirname {}  | \
+	uniq)	
+	
+# Busco los archivos _test.go
+GO_TEST_DIRS := $(shell \
+	find . -name "*_test.go"| \
+	xargs -I {} dirname {}  | \
+	uniq)
+	
+
+
+.PHONY: test
