@@ -10,9 +10,12 @@ La primera actividad relacionada con esa historia era la de crear las clases con
 
 Teniendo ya todo lo anterior programado, demostré que no había errores de compilacion con esta [imagen](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/verificaci%C3%B3n%20del%20c%C3%B3digo.png), esto forma parte del siguiente issue ([ISSUE demostrar clases compiladas](https://github.com/pabloalfaro/Car-finder/issues/22)).
 
+En este punto sólo tenía una captura de las clases compiladas para verificar que el código no tiene errores, esto no es suficiente. Teniendo ya algunas clases creadas, habría que programar los tests para comprobar el buen funcionamiento de las mismas. Esta será la prioridad en esta etapa, una vez que tenga los test continuaré con las funcionalidades relacionadas con [HU Crear anuncios](https://github.com/pabloalfaro/Car-finder/issues/8).
+
+
 ## [PMV 2](https://github.com/pabloalfaro/Car-finder/milestone/4) (En desarrollo)
 
-En este punto sólo tenía una captura de las clases compiladas para verificar que el código no tiene errores, esto no es suficiente. Teniendo ya algunas clases creadas, habría que programar los tests para comprobar el buen funcionamiento de las mismas. Esta será la prioridad en esta etapa, una vez que tenga los test continuaré con las funcionalidades relacionadas con [HU Crear anuncios](https://github.com/pabloalfaro/Car-finder/issues/8).
+El objetivo principal será crear un Doker dónde se desplegará la aplicación.
 
 Las próximas funcionalidades que planteo son las relacionadas con las bases de datos. Tendré que crear una BD para almacenar los diferentes usuarios, otra para los modelos de los coches y una para los propios anuncios.
 
