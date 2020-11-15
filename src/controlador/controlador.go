@@ -1,6 +1,6 @@
 package controlador
 
-import "fmt"
+//import "fmt"
 
 import "github.com/pabloalfaro/Car-finder/src/anuncio"
 import "github.com/pabloalfaro/Car-finder/src/coche"
@@ -16,12 +16,12 @@ type Controlador struct{
 }
 
 
-func Main() {
+func NuevoControlador() Controlador{
 	//Inicializo el map
 	var cont Controlador
 	cont.usuarios = make(map[string]usuario.Usuario)
-
-	fmt.Println("Usuarios iniciado")
+	
+	return cont
 }
 
 //Devuelve un boolean igual a True si se ha hecho la inserción y False si no se ha podido hacer
@@ -42,9 +42,16 @@ func (cont *Controlador) NuevoUsuario(u string, n string, a string, co string, c
 	}
 }
 
-func (cont *Controlador) NuevoAnuncio(u usuario.Usuario, p float32, coc coche.Coche, k int, e string, ciu string, d string, col string) {
-	var anun anuncio.Anuncio
+func (cont *Controlador) NuevoAnuncio(u string, p float32, coc coche.Coche, k int, e string, ciu string, d string, col string) bool{
+	_, ok := cont.usuarios[u]
+	
+	if ok {
+		var anun anuncio.Anuncio
 
-	anun = anuncio.NewAnuncio(u, p, coc, k, e, ciu, d, col)
-	cont.anuncios = append(cont.anuncios, anun)
+		anun = anuncio.NewAnuncio(u, p, coc, k, e, ciu, d, col)
+		cont.anuncios = append(cont.anuncios, anun)
+		return true
+	} else {
+		return false
+	}
 }
