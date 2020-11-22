@@ -18,7 +18,7 @@ Me he decidido por tests de tipo bdd, este tipo de test se han de implementar pa
 
 Ginkgo tiene una manera pripia de ejecutar los tests pero se puede hacer con la herramienta de Go, utilizando el comando `go test`. De esta manera ejecutas los test que tengas en el directorio dónde lo estés ejecutando. Otra método de ejecutrarlos sería con `go test ./ruta_de_tests`, de esta forma puedes elegir el directorio dónde están los test que quieras ejecutar. Los archivos de Go de test se identifican porque tienen este tipo de nombres: `nombre_test.go`. Estos archivos puedes guardarlos junto con la clase que testean o los puedes guardar en otro directorio a parte. Go no permite normalmente que tengas ficheros de dos `package` distintos, pero con los tests hace una excepción. En mi caso he guardado los test junto con la clase a la que hacen referencia.
 
-## Elección de imagen para Docker
+## Elección de imagen para Docker (Entrega 3)
 
 Quiero crear una imagen Docker para ejecutar los test de mi aplicación. El objetivo es que esta imagen tenga instalado Golang, en mi caso la versión 1.15.5. También quiero que la imagen ocupe lo menos posible. Para ello, voy a repasar algunas imágenes de algunos sistemas operativos y después las versiones oficiales. Tras esto también revisaré documentación para informarme sobre la imagen más extendida.
 
@@ -52,6 +52,24 @@ Tras comparar estas imágenes he pasado a revisar documentación sobre Dockers p
 
 En esta documentación y alguna más que he visto he comprobado que la imagen más usada es la de golang:alpine. Dado que era la mejor de las que había visto y es la más extendida, será mi elección para construir el Docker de pruebas.
 
+## Ejecución de los test (Entrega 3)
+
+Para hacer la build del docker he usado el sioguiente comando:
+
+`docker build --no-cache -t golang_alpine -f Dockerfile .`
+
+A mi imagen le he llamado golang_alpine y el fichero que he utilizado ha sido [Dockerfile](https://github.com/pabloalfaro/Car-finder/blob/main/Dockerfile). Con la imagen construida lanzo los test de la siguiente manera:
+
+`docker run -t -v pwp:/app/test golang_alpine:latest`
+
+Así lanzo los test con la imagen local. Se pueden ejecutar también con la imagen remota de mi repositorio de Docker Hub. Mi usuario es pabloalfaro y mi repo es car-finder. Se podría usar la imagen remota de esta forma: (utilizo la etiqueta latest para referirme a la ultima imagen construida)
+
+`docker run -t -v pwp:/app/test pabloalfaro/car-finder:latest`
+
+En ambos casos trabajo sobre el directorio /app/test, es el que he preparado en Dockerfile para trabajar. El resultado que obtengo con las ejecuciones se puede ver en la imagen de abajo.
+
+![test](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/run%20en%20docker.png)
+
 ## Historias de usuario
 
 En mi caso he pensado en 3 posibles usuarios, estos son:
@@ -59,7 +77,6 @@ En mi caso he pensado en 3 posibles usuarios, estos son:
 - El cliente que ha encargado el proyecto: [Cliente](https://github.com/pabloalfaro/Car-finder/issues?q=is%3Aissue+is%3Aopen+label%3Acliente)
 - El comprador de los coches: [Comprador](https://github.com/pabloalfaro/Car-finder/issues?q=is%3Aissue+is%3Aopen+label%3Acomprador)
 - El vendedor de los coches: [Vendedor](https://github.com/pabloalfaro/Car-finder/issues?q=is%3Aissue+is%3Aopen+label%3Avendedor)
-
 
 
 ## Documentación adicional
