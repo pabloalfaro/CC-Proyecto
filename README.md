@@ -70,6 +70,22 @@ En ambos casos trabajo sobre el directorio /app/test, es el que he preparado en 
 
 ![test](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/run%20en%20docker.png)
 
+## Trabajo con Docker Hub 
+
+Lo primero que he hecho ha sido registrarme en la página y crear mi [repo](https://hub.docker.com/r/pabloalfaro/car-finder) para el proyecto. En primer lugar he querido hacer un push de una imagen. Para ello he seguido los pasos de este [tutorial](https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html). Lo primero que he hecho ha sido el login:
+
+`docker login --username=pabloalfaro`
+
+Una vez identificado he creado un tag para hacer el push:
+
+`docker tag 8b308631375e pabloalfaro/car-finder:firsttry`
+
+Con este tag, firsttry, creado he pasado a hacer el push:
+
+`docker push pabloalfaro/car-finder`
+
+El siguente paso ha sido automatizar las builds cada vez que hiciese un commit en mi repo de GitHub. Esto se puede hacer desde Manage Repository, Builds, Configure Automated Builds. Hay que enlazar tu cuenta con la de GitHub, una vez hecho, tienes que elegir el repo, la rama y la localización del fichero Dockerfile. 
+
 ## Historias de usuario
 
 En mi caso he pensado en 3 posibles usuarios, estos son:
