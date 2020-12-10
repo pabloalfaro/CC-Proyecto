@@ -1,4 +1,4 @@
-lenguage: go
+language: go
 
 go:
 - 1.15
