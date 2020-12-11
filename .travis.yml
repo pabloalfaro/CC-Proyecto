@@ -10,5 +10,4 @@ install:
   - docker pull pabloalfaro/car-finder
 
 script:
-  - docker run -t -v  $TRAVIS_BUILD_DIR:/test pabloalfaro/car-finder
-  
+  - docker run -t -v `pwp`:/app/test golang_alpine:latest
