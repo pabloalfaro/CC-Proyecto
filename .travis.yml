@@ -3,5 +3,12 @@ language: go
 go:
 - 1.15
 
-script: 
-- make test
+services:
+  - docker
+
+install:
+  - docker pull pabloalfaro/car-finder
+
+script:
+  - docker run -t -v  $TRAVIS_BUILD_DIR:/test pabloalfaro/car-finder
+  
