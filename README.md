@@ -55,6 +55,8 @@ script:
 - make test
 ~~~
 
+Después de ejecutar los test he podido comprobar que los tests fallan a partir de la versión 1.12 por lo que he actualizado el fichero para que las pruebas se hagan hasta la versión 1.13.
+
 ## Historias de usuario
 
 En mi caso he pensado en 3 posibles usuarios, estos son:
