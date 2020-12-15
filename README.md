@@ -38,7 +38,22 @@ script:
   - docker run -t -v $TRAVIS_BUILD_DIR:/app/test pabloalfaro/car-finder
 ~~~
 
-Con Travis ya configurado he probado otro sistema. El que he elegido ha sido [Shippable](https://app.shippable.com/). La implementación de este sistema es muy similar a Travis, hay que registrarse con una cuenta de GitHub y elegir los repos sobre los que quieres ejecutar la integración continua. A diferencia de Travis, Shippable si que deja que te registres con otros sistemas como Bitbucket o GitLab. Después de configurar lo anterior, he añadido un fichero [shippable.yml](https://github.com/pabloalfaro/Car-finder/blob/main/shippable.yml). En este caso, la configuración que he elegido ha sido la de mi primera opcion para Travis, ejecutando los test con la orden de mi fichero Makefile.
+Con Travis ya configurado he probado otro sistema. El que he elegido ha sido [Shippable](https://app.shippable.com/). La implementación de este sistema es muy similar a Travis, hay que registrarse con una cuenta de GitHub y elegir los repos sobre los que quieres ejecutar la integración continua. A diferencia de Travis, Shippable si que deja que te registres con otros sistemas como Bitbucket o GitLab. Después de configurar lo anterior, he añadido un fichero [shippable.yml](https://github.com/pabloalfaro/Car-finder/blob/main/shippable.yml). En este caso, la configuración que he elegido ha sido la de mi primera opcion para Travis, ejecutando los test con la orden de mi fichero Makefile. A diferencia de la anterior, esta vez compruebo más versiones de mi lenguaje.
+
+~~~
+language: go
+
+go:
+- 1.15
+- 1.14
+- 1.13
+- 1.12
+- 1.11
+- 1.10
+
+script: 
+- make test
+~~~
 
 ## Historias de usuario
 
