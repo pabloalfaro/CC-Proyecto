@@ -30,57 +30,57 @@ func NewAnuncio(u string, p float32, coc coche.Coche, k int, e string, ciu strin
 }
 
 //Get y set para Precio
-func GetPrecioA(a Anuncio) float32 {
+func GetPrecio(a Anuncio) float32 {
 	return a.precio
 }
 
-func SetPrecioA(a Anuncio, p float32) {
+func SetPrecio(a Anuncio, p float32) {
 	a.precio = p
 }
 
 //Get para Coche
-func GetCocheA(a Anuncio) coche.Coche {
+func GetCoche(a Anuncio) coche.Coche {
 	return a.coche
 }
 
 //Get y set para km
-func GetKmA(a Anuncio) int {
+func GetKm(a Anuncio) int {
 	return a.km
 }
 
-func SetKmA(a Anuncio, k int) {
+func SetKm(a Anuncio, k int) {
 	a.km = k
 }
 
 //Get y set para estado
-func GetEstadoA(a Anuncio) string {
+func GetEstado(a Anuncio) string {
 	return a.estado
 }
 
-func SetEstadoA(a Anuncio, e string) {
+func SetEstado(a Anuncio, e string) {
 	a.estado = e
 }
 
 //Get y set para ciudad
-func GetCiudadA(a Anuncio) string {
+func GetCiudad(a Anuncio) string {
 	return a.ciudad
 }
 
-func SetCiudadA(a Anuncio, c string) {
+func SetCiudad(a Anuncio, c string) {
 	a.ciudad = c
 }
 
 //Get y set para descripcion
-func GetDescripcionA(a Anuncio) string {
+func GetDescripcion(a Anuncio) string {
 	return a.descripcion
 }
 
-func SetDescripcionA(a Anuncio, d string) {
+func SetDescripcion(a Anuncio, d string) {
 	a.descripcion = d
 }
 
 //Get y set para color
-func GetColorA(a Anuncio) string {
+func GetColor(a Anuncio) string {
 	return a.color
 }
 

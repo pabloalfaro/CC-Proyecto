@@ -21,21 +21,21 @@ func NewCoche(ma string, mo string, s string, p int) Coche {
 }
 
 //Get para marca
-func GetMarcaC(c Coche) string {
+func GetMarca(c Coche) string {
 	return c.marca
 }
 
 //Get para modelo
-func GetModeloC(c Coche) string {
+func GetModelo(c Coche) string {
 	return c.modelo
 }
 
 //Get para serie
-func GetSerieC(c Coche) string {
+func GetSerie(c Coche) string {
 	return c.serie
 }
 
 //Get para potencia
-func GetPotenciaC(c Coche) int {
+func GetPotencia(c Coche) int {
 	return c.potencia
 }

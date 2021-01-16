@@ -24,39 +24,39 @@ func NewUsuario(u string, n string, a string, co string, ci string) Usuario {
 }
 
 //Get para username
-func GetUsermaneU(u Usuario) string {
+func GetUsername(u Usuario) string {
 	return u.username
 }
 
 //Get y set para nombre
-func GetNombreU(u Usuario) string {
+func GetNombre(u Usuario) string {
 	return u.nombre
 }
 
-func SetNombreU(u Usuario, n string) {
+func SetNombre(u Usuario, n string) {
 	u.nombre = n
 }
 
 //Get y set para apellidos
-func GetApellidosU(u Usuario) string {
+func GetApellidos(u Usuario) string {
 	return u.apellidos
 }
 
-func SetApellidosU(u Usuario, a string) {
+func SetApellidos(u Usuario, a string) {
 	u.apellidos = a
 }
 
 //Get y set para correo
-func GetCorreoU(u Usuario) string {
+func GetCorreo(u Usuario) string {
 	return u.correo
 }
 
-func SetCorreoU(u Usuario, c string) {
+func SetCorreo(u Usuario, c string) {
 	u.correo = c
 }
 
 //Get y set para Ciudad
-func GetCiudadU(u Usuario) string {
+func GetCiudad(u Usuario) string {
 	return u.ciudad
 }
 
