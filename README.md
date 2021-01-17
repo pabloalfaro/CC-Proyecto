@@ -4,6 +4,11 @@
 # Car finder (En desarrollo)
 Soy Pablo Alfaro, alumno de la asignatura de Cloud Computing del Máster en Ingeniería Informática de la Universidad de Granada. En este repositorio se encuentra el proyecto de la asignatura.
 
+## Semana actual
+- [Justificacion del framework](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/framework%20para%20microservicios.md).
+- [Diseño de la api](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/api.md).
+- [Test de la api](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/test.md).
+- [Utilización de logs](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/log.md).
 
 ## Historias de usuario
 
