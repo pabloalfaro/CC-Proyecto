@@ -17,13 +17,44 @@ el código devuelto será el 201.
 - `buscarUsuario` en la ruta `/usuario/buscar/{user}`. Utilizo el método GET y le paso el parámetro `user` cómo índice para la búsqueda. Si se ha encontrado el usuario se 
 devuelven sus datos con el código 200. En el caso de no encontrar un usuario con ese `username` el código será el 404.
 
-- `modificarUsuario` en la ruta `/usuario/modificar`. Utilizo el método PUT para pasar los parámetros nuevos. Se identifica qué parámetros llegan y se actualizan sólo esos campos.
-Si se ha actualizado el usuario correctamente obtendremos un código 201, en el caso contrario el código será el 404 al no haber encontrado el usuario que queremos modificar.
+- `modificarUsuario` en la ruta `/usuario/modificar`. Utilizo el método PUT para pasar los parámetros nuevos. Se identifica qué parámetros llegan y se actualizan sólo esos
+campos. Si se ha actualizado el usuario correctamente obtendremos un código 201, en el caso contrario el código será el 404 al no haber encontrado el usuario que queremos 
+modificar.
 
 - `borrarUsuario` en la ruta `/usuario/borrar/{user}`. Utilizo el método DELETE y le paso el parámetro `user` cómo índice para borrar. Se busca si existe un usuario con un 
 `username` igual a el parámetro `user` y si es así se elimina. De llevarse a cabo correctamente obtendremos un código 201, en el caso contrario el código será el 404 al 
 no haber encontrado el usuario que queremos borrar.
 
+
+### Coches
+Estas funcionalidades corresponden a la [[HU]Quiero poder gestionar los coches de la página](https://github.com/pabloalfaro/Car-finder/issues/71)
+
+- `nuevoCoche` en la ruta `/coche`. Utilizo el método POST para pasar los parámetros necesarios en forma de formulario. Si alguno de los parámetros es nulo, 
+devuelve un error 400. Si se está intentando registrar un coche ya registrado devolverá un código de error 409. En el caso de que se realice la petición correctamente 
+el código devuelto será el 201.
+
+- `buscarCoche` en la ruta `/coche/buscar`. Utilizo el método GET y le paso los parámetros para la búsqueda. Si se ha encontrado el coche se devuelven sus datos con el código
+200. En el caso de no encontrar un coche con esos parámetros el código será el 404.
+
+- `borrarCoche` en la ruta `/coche/borrar`. Utilizo el método DELETE y le paso el parámetros del coche a borrar. Se busca si existe un coche con esas características y si es 
+así se elimina. De llevarse a cabo correctamente obtendremos un código 201, en el caso contrario el código será el 404 al no haber encontrado el coche que queremos borrar.
+
+
+### Anuncios
+Estas funcionalidades corresponden a las: [[HU]Quiero poder anunciar los coches](https://github.com/pabloalfaro/Car-finder/issues/8), 
+[[HU]Quiero poder hacer búsquedas entre los distintos anuncios](https://github.com/pabloalfaro/Car-finder/issues/6), 
+[[HU]Quiero poder eliminar mis anuncios](https://github.com/pabloalfaro/Car-finder/issues/10).
+
+
+- `nuevoAnuncio` en la ruta `/anuncio`. Utilizo el método POST para pasar los parámetros necesarios en forma de formulario. Si alguno de los parámetros es nulo, 
+devuelve un error 400. En el caso de que se realice la petición correctamente el código devuelto será el 201.
+
+- `buscarAnuncio` en la ruta `/anuncio/buscar`. Utilizo el método GET y le paso los parámetros para la búsqueda. Si se ha encontrado el anuncio se devuelven sus datos con el 
+código 200. En el caso de no encontrar un anuncio con esos parámetros el código será el 404.
+
+- `borrarAnuncio` en la ruta `/anuncio/borrar`. Utilizo el método DELETE y le paso el parámetros del anuncio a borrar. Se busca si existe un anuncio con esas características y 
+si es así se elimina. De llevarse a cabo correctamente obtendremos un código 201, en el caso contrario el código será el 404 al no haber encontrado el anuncio que queremos 
+borrar.
 
 
 ## Implementación de la api
@@ -46,6 +77,7 @@ func newApp() *iris.Application {
 }
 ~~~
 
+### Definición de nuevoUsuario
 ~~~
 func nuevoUsuario(ctx iris.Context){
     if ctx.FormValue("username") == ""{
@@ -105,6 +137,7 @@ func nuevoUsuario(ctx iris.Context){
 }
 ~~~
 
+### Definición de buscarUsuario
 ~~~
 func buscarUsuario(ctx iris.Context){
 	nombre := ctx.Params().Get("user")
@@ -129,6 +162,7 @@ func buscarUsuario(ctx iris.Context){
 }
 ~~~
 
+### Definición de modificarUsuario
 ~~~
 func modificarUsuario(ctx iris.Context){
 	u := ctx.FormValue("username")
@@ -153,6 +187,7 @@ func modificarUsuario(ctx iris.Context){
 }
 ~~~
 
+### Definición de borrarUsuario
 ~~~
 func borrarUsuario(ctx iris.Context){
 	nombre := ctx.Params().Get("user")
