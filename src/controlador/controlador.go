@@ -1,7 +1,5 @@
 package controlador
 
-//import "fmt"
-
 import "github.com/pabloalfaro/Car-finder/src/anuncio"
 import "github.com/pabloalfaro/Car-finder/src/coche"
 //import "github.com/pabloalfaro/Car-finder/src/mensaje"
@@ -153,6 +151,33 @@ func (cont *Controlador) NuevoAnuncio(u string, p float32, coc coche.Coche, k in
 		cont.anuncios = append(cont.anuncios, anun)
 		return true
 	} else {
+		return false
+	}
+}
+
+
+
+func (cont *Controlador) BuscarAnuncio(u string, p float32, coc coche.Coche, k int, e string, ciu string, d string, col string) (int, bool){
+	var anun anuncio.Anuncio
+	anun = anuncio.NewAnuncio(u, p, coc, k, e, ciu, d, col)
+	
+	for index, i := range cont.anuncios {
+		if i == anun{
+			return index, true
+		}
+	}
+	return -1, false
+}
+
+
+
+func (cont *Controlador) BorrarAnuncio(u string, p float32, coc coche.Coche, k int, e string, ciu string, d string, col string) bool{
+	index, r := cont.BuscarAnuncio(u, p, coc, k, e, ciu, d, col)
+	
+	if r {
+		cont.anuncios = append(cont.anuncios[index:], cont.anuncios[index+1:]...)
+		return true
+	}else{
 		return false
 	}
 }
