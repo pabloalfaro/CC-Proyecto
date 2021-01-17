@@ -10,7 +10,7 @@ func TestUsuario(t *testing.T) {
     app := newApp()
     e := httptest.New(t, app)
     
-    log.Print("TEST 1: CREAR COCHE.")
+    log.Print("TEST 1: CREAR USUARIO.")
  
     e.POST("/usuario").
     	WithFormField("username", "PabloA").
