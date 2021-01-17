@@ -74,7 +74,7 @@ En mi caso he pensado en 3 posibles usuarios, estos son:
 ## Contenido anterior
 Aquí dejo los links a los contenidos de las semanas anteriores:
 
-- [Tema 1](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema1.md)
-- [Tema 2](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema2.md)
-- [Tema 3](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema3.md)
-- [Tema 4](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema4.md)
+- [Descripción del proyecto](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema1.md)
+- [Definición de arquitectura y lenguaje](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema2.md)
+- [Gestor de tareas, biblioteca de aserciones, marco de pruebas y la ejecución de los tests](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema3.md)
+- [Docker](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema4.md)
