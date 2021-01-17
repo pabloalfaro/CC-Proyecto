@@ -1,12 +1,14 @@
 lenguaje: go
 fichero_tareas:
   - Makefile
+make: make
 entidad:
   - src/anuncio/anuncio.go
   - src/coche/coche.go
   - src/mensaje/mensaje.go
   - src/usuario/usuario.go
   - src/controlador/controlador.go
+  - src/api/api.go
 test:
   - src/controlador/controlador_test.go
-
+  - src/api/api_test.go
