@@ -1,6 +1,14 @@
 all: install
 
 install:
+	go get -u github.com/onsi/ginkgo/ginkgo 
+	go get github.com/kataras/iris/v12@master
+	
+	@for dir in $(GO_SRC_DIRS); do \
+		go install $$dir; \
+	done;
+	
+build:
 	@for dir in $(GO_SRC_DIRS); do \
 		go install $$dir; \
 	done;
@@ -11,6 +19,7 @@ help:
 	@echo "	-install"
 	@echo "	-test"
 	@echo "	-fmt"
+	@echo "	-build"
 
 
 # Lanzo los test con los resultados de la búsqueda de archivos de test
