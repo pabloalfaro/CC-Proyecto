@@ -11,7 +11,7 @@ Cada uno de estos bloques tienen funcionalidades distintas que pasaré a detalla
 Estas funcionalidades corresponden a la [[HU]Quiero poder gestionar los usuarios de la página](https://github.com/pabloalfaro/Car-finder/issues/7)
 
 - `nuevoUsuario` en la ruta `/usuario`. Utilizo el método POST para pasar los parámetros necesarios en forma de formulario. Si alguno de los parámetros es nulo, 
-devuelve un error 400. Si se está intentando registrar con un `username` ya registrado devolverá un código de error 409. En el caso de que se realice la petición correctamente 
+devuelve un error 400. Si se está intentando registrar con un `username` ya registrado devolverá un código de error 404. En el caso de que se realice la petición correctamente 
 el código devuelto será el 201.
 
 - `buscarUsuario` en la ruta `/usuario/buscar/{user}`. Utilizo el método GET y le paso el parámetro `user` cómo índice para la búsqueda. Si se ha encontrado el usuario se 
@@ -30,7 +30,7 @@ no haber encontrado el usuario que queremos borrar.
 Estas funcionalidades corresponden a la [[HU]Quiero poder gestionar los coches de la página](https://github.com/pabloalfaro/Car-finder/issues/71)
 
 - `nuevoCoche` en la ruta `/coche`. Utilizo el método POST para pasar los parámetros necesarios en forma de formulario. Si alguno de los parámetros es nulo, 
-devuelve un error 400. Si se está intentando registrar un coche ya registrado devolverá un código de error 409. En el caso de que se realice la petición correctamente 
+devuelve un error 400. Si se está intentando registrar un coche ya registrado devolverá un código de error 404. En el caso de que se realice la petición correctamente 
 el código devuelto será el 201.
 
 - `buscarCoche` en la ruta `/coche/buscar`. Utilizo el método GET y le paso los parámetros para la búsqueda. Si se ha encontrado el coche se devuelven sus datos con el código
@@ -125,7 +125,7 @@ func nuevoUsuario(ctx iris.Context){
 	if !res{
     	log.Print("Username ya registrado.\n")
     	log.Print("No se ha registrado el usuario.\n")
-    	ctx.StatusCode(409)
+    	ctx.StatusCode(404)
     	return
 	}
 	
