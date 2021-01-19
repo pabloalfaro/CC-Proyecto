@@ -20,23 +20,23 @@ func newApp() *iris.Application {
 	usuario := app.Party("/usuario")
 	{
 		usuario.Post("", nuevoUsuario)
-		usuario.Get("/buscar/{user}", buscarUsuario)
-		usuario.Put("/modificar", modificarUsuario)
-		usuario.Delete("/borrar/{user}", borrarUsuario)
+		usuario.Get("/{user}", buscarUsuario)
+		usuario.Put("", modificarUsuario)
+		usuario.Delete("/{user}", borrarUsuario)
 	}
 	
 	coche := app.Party("/coche")
 	{
 		coche.Post("", nuevoCoche)
-		coche.Get("/buscar", buscarCoche)
-		coche.Delete("/borrar", borrarCoche)
+		coche.Get("", buscarCoche)
+		coche.Delete("", borrarCoche)
 	}
 	
 	anuncio := app.Party("/anuncio")
 	{
 		anuncio.Post("", nuevoAnuncio)
-		anuncio.Get("/buscar", buscarAnuncio)
-		anuncio.Delete("/borrar", borrarAnuncio)
+		anuncio.Get("", buscarAnuncio)
+		anuncio.Delete("", borrarAnuncio)
 	}
 	
     return app
@@ -90,7 +90,7 @@ func nuevoUsuario(ctx iris.Context){
 	if !res{
     	log.Print("Username ya registrado.\n")
     	log.Print("No se ha registrado el usuario.\n")
-    	ctx.StatusCode(409)
+    	ctx.StatusCode(404)
     	return
 	}
 	
@@ -214,7 +214,7 @@ func nuevoCoche(ctx iris.Context){
 	if !res{
     	log.Print("Coche ya registrado.\n")
     	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(409)
+    	ctx.StatusCode(404)
     	return
 	}
 	
