@@ -73,13 +73,13 @@ He encontrado información adicional en las siguientes páginas:
 ### [Beego](https://github.com/beego/beego/):
 Beego se utiliza para el desarrollo rápido de aplicaciones empresariales en Go, incluidas las API RESTful, las aplicaciones web y los servicios de backend. Está inspirado en Tornado, Sinatra y Flask. beego tiene algunas características específicas de Go, como interfaces y estructuras embebidas.
 
-Con soporte RESTful, modelo MVC y use la herramienta bee para crear sus aplicaciones rápidamente con características que incluyen compilación en caliente de código, pruebas automatizadas y empaquetado e implementación automatizados.
+Tiene soporte RESTful, modelo MVC y usa la herramienta bee para crear aplicaciones que incluyen compilación en caliente de código, pruebas automatizadas y empaquetado e implementación automatizada.
 
-Con enrutamiento y monitoreo inteligente, puede monitorear su QPS, el uso de memoria y CPU, y el estado de la rutina. Le proporciona un control total de sus aplicaciones en línea.
+Permite el enrutamiento y monitoreo inteligente. Puede monitorear su QPS, el uso de memoria y CPU, y el estado de la rutina. Proporciona un control total de las aplicaciones en línea.
 
-Con potentes módulos integrados que incluyen control de sesión, almacenamiento en caché, registro, análisis de configuración, supervisión de rendimiento, manejo de contexto, soporte de ORM y simulación de solicitudes. Obtiene la base poderosa para cualquier tipo de aplicación.
+Tiene módulos integrados que incluyen control de sesión, almacenamiento en caché, registro, análisis de configuración, supervisión de rendimiento, manejo de contexto, soporte de ORM y simulación de solicitudes.
 
-Con paquete nativo Go http para manejar las solicitudes y la eficiente concurrencia de goroutine. Sus aplicaciones beego pueden manejar un tráfico masivo como lo hace beego en muchas producciones.
+Contiene un paquete nativo Go http para manejar las solicitudes y la concurrencia de goroutine.
 
 He encontrado información adicional en las siguientes páginas:
 - https://beego.me/
