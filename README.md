@@ -5,10 +5,10 @@
 Soy Pablo Alfaro, alumno de la asignatura de Cloud Computing del Máster en Ingeniería Informática de la Universidad de Granada. En este repositorio se encuentra el proyecto de la asignatura.
 
 ## Semana actual
-- [Justificacion del framework](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/framework%20para%20microservicios.md).
-- [Diseño de la api](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/api.md).
-- [Test de la api](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/test.md).
-- [Utilización de logs](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/log.md).
+- [Justificacion del framework](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/framework%20para%20microservicios.md).
+- [Diseño de la api](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/api.md).
+- [Test de la api](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/test.md).
+- [Utilización de logs](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/log.md).
 
 ## Historias de usuario
 
@@ -20,7 +20,7 @@ En mi caso he pensado en 3 posibles usuarios, estos son:
 
 
 ## Documentación adicional
-- [Roadmap del proyecto](https://github.com/pabloalfaro/Car-finder/blob/main/roadmap.md)
+- [Roadmap del proyecto](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/roadmap.md)
 - [Clases programadas](https://github.com/pabloalfaro/Car-finder/tree/main/src)
 - [Tests unitarios](https://github.com/pabloalfaro/Car-finder/tree/main/src/controlador)
 - [PMV 1](https://github.com/pabloalfaro/Car-finder/milestone/3)
@@ -31,8 +31,8 @@ En mi caso he pensado en 3 posibles usuarios, estos son:
 ## Contenido anterior
 Aquí dejo los links a los contenidos de las semanas anteriores:
 
-- [Descripción del proyecto](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema1.md)
-- [Definición de arquitectura y lenguaje](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema2.md)
-- [Gestor de tareas, biblioteca de aserciones, marco de pruebas y la ejecución de los tests](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema3.md)
-- [Docker](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema4.md)
-- [Integración continua](https://github.com/pabloalfaro/Car-finder/blob/main/Semanas%20anteriores/tema5.md)
+- [Descripción del proyecto](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/tema1.md)
+- [Definición de arquitectura y lenguaje](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/tema2.md)
+- [Gestor de tareas, biblioteca de aserciones, marco de pruebas y la ejecución de los tests](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/tema3.md)
+- [Docker](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/tema4.md)
+- [Integración continua](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/tema5.md)
