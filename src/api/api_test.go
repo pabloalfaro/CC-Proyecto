@@ -23,7 +23,7 @@ func TestUsuario(t *testing.T) {
     
     log.Print("TEST 2: BUSCAR USUARIO.")
     	
-    r:= e.GET("/usuario/buscar/{user}", "PabloA").
+    r:= e.GET("/usuario/{user}", "PabloA").
     		Expect().Status(200).
     		JSON().Object()
     		
@@ -36,7 +36,7 @@ func TestUsuario(t *testing.T) {
     
     log.Print("TEST 3: MODIFICAR USUARIO.")
     
-    e.PUT("/usuario/modificar").
+    e.PUT("/usuario").
     	WithFormField("username", "PabloA").
     	WithFormField("nombre", "Pablo").
     	WithFormField("apellido", "Alfaro").
@@ -47,7 +47,7 @@ func TestUsuario(t *testing.T) {
     	
     log.Print("TEST 4: BORRAR USUARIO.")
     
-    e.DELETE("/usuario/borrar/{user}", "PabloA").
+    e.DELETE("/usuario/{user}", "PabloA").
     		Expect().Status(200)
     
 }
@@ -70,7 +70,7 @@ func TestCoche(t *testing.T) {
     
     log.Print("TEST 2: BUSCAR COCHE.")
     	
-    r:= e.GET("/coche/buscar").
+    r:= e.GET("/coche").
 		WithQuery("marca", "Audi").
     	WithQuery("modelo", "A4").
     	WithQuery("serie", "S").
@@ -86,7 +86,7 @@ func TestCoche(t *testing.T) {
     	
     log.Print("TEST 3: BORRAR COCHE.")
     
-    e.DELETE("/coche/borrar").
+    e.DELETE("/coche").
     	WithQuery("marca", "Audi").
     	WithQuery("modelo", "A4").
     	WithQuery("serie", "S").
@@ -128,7 +128,7 @@ func TestAnuncio(t *testing.T) {
     	
     log.Print("TEST 2: BUSCAR ANUNCIO.")
     /*
-    r:= e.GET("/anuncio/buscar").
+    r:= e.GET("/anuncio").
 		WithQuery("usuario", "PabloA").
     	WithQuery("precio", "10000").
     	WithQuery("marca", "Audi").
@@ -156,7 +156,7 @@ func TestAnuncio(t *testing.T) {
    
     log.Print("TEST 3: BORRAR ANUNCIO.")
     /*
-    e.DELETE("/anuncio/borrar").
+    e.DELETE("/anuncio").
     	WithQuery("usuario", "PabloA").
     	WithQuery("precio", "10000").
     	WithQuery("marca", "Audi").
