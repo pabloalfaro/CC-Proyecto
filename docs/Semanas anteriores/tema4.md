@@ -48,7 +48,7 @@ Así lanzo los test con la imagen local. Se pueden ejecutar también con la imag
 
 En ambos casos trabajo sobre el directorio /app/test, es el que he preparado en Dockerfile para trabajar. El resultado que obtengo con las ejecuciones se puede ver en la imagen de abajo.
 
-![test](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/run%20en%20docker.png)
+![test](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Documentaci%C3%B3n%20adicional/run%20en%20docker.png)
 
 ## Trabajo con Docker Hub
 
@@ -66,8 +66,8 @@ Con este tag, firsttry, creado he pasado a hacer el push:
 
 El siguente paso ha sido automatizar las builds cada vez que hiciese un commit en mi repo de GitHub. Esto se puede hacer desde Manage Repository, Builds, Configure Automated Builds. Hay que enlazar tu cuenta con la de GitHub, una vez hecho, tienes que elegir el repo, la rama y la localización del fichero Dockerfile. 
 
-![configuración](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/configuracion%20DockerHub.png)
+![configuración](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Documentaci%C3%B3n%20adicional/configuracion%20DockerHub.png)
 
 Para terminar puedes guardar la configuración usando *Save* o puedes hacer el primer build con *Save and Build*. Cuando ya lo tienes configurado puedes ver las builds así:
 
-![builds](https://github.com/pabloalfaro/Car-finder/blob/main/Documentaci%C3%B3n%20adicional/builds.png)
+![builds](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Documentaci%C3%B3n%20adicional/builds.png)
