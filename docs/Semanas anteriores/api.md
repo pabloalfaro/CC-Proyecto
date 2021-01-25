@@ -14,14 +14,14 @@ Estas funcionalidades corresponden a la [[HU]Quiero poder gestionar los usuarios
 devuelve un error 400. Si se está intentando registrar con un `username` ya registrado devolverá un código de error 404. En el caso de que se realice la petición correctamente 
 el código devuelto será el 201.
 
-- `buscarUsuario` en la ruta `/usuario/buscar/{user}`. Utilizo el método GET y le paso el parámetro `user` cómo índice para la búsqueda. Si se ha encontrado el usuario se 
+- `buscarUsuario` en la ruta `/usuario/{user}`. Utilizo el método GET y le paso el parámetro `user` cómo índice para la búsqueda. Si se ha encontrado el usuario se 
 devuelven sus datos con el código 200. En el caso de no encontrar un usuario con ese `username` el código será el 404.
 
-- `modificarUsuario` en la ruta `/usuario/modificar`. Utilizo el método PUT para pasar los parámetros nuevos. Se identifica qué parámetros llegan y se actualizan sólo esos
+- `modificarUsuario` en la ruta `/usuario`. Utilizo el método PUT para pasar los parámetros nuevos. Se identifica qué parámetros llegan y se actualizan sólo esos
 campos. Si se ha actualizado el usuario correctamente obtendremos un código 201, en el caso contrario el código será el 404 al no haber encontrado el usuario que queremos 
 modificar.
 
-- `borrarUsuario` en la ruta `/usuario/borrar/{user}`. Utilizo el método DELETE y le paso el parámetro `user` cómo índice para borrar. Se busca si existe un usuario con un 
+- `borrarUsuario` en la ruta `/usuario/{user}`. Utilizo el método DELETE y le paso el parámetro `user` cómo índice para borrar. Se busca si existe un usuario con un 
 `username` igual a el parámetro `user` y si es así se elimina. De llevarse a cabo correctamente obtendremos un código 201, en el caso contrario el código será el 404 al 
 no haber encontrado el usuario que queremos borrar.
 
@@ -33,10 +33,10 @@ Estas funcionalidades corresponden a la [[HU]Quiero poder gestionar los coches d
 devuelve un error 400. Si se está intentando registrar un coche ya registrado devolverá un código de error 404. En el caso de que se realice la petición correctamente 
 el código devuelto será el 201.
 
-- `buscarCoche` en la ruta `/coche/buscar`. Utilizo el método GET y le paso los parámetros para la búsqueda. Si se ha encontrado el coche se devuelven sus datos con el código
+- `buscarCoche` en la ruta `/coche`. Utilizo el método GET y le paso los parámetros para la búsqueda. Si se ha encontrado el coche se devuelven sus datos con el código
 200. En el caso de no encontrar un coche con esos parámetros el código será el 404.
 
-- `borrarCoche` en la ruta `/coche/borrar`. Utilizo el método DELETE y le paso el parámetros del coche a borrar. Se busca si existe un coche con esas características y si es 
+- `borrarCoche` en la ruta `/coche`. Utilizo el método DELETE y le paso el parámetros del coche a borrar. Se busca si existe un coche con esas características y si es 
 así se elimina. De llevarse a cabo correctamente obtendremos un código 201, en el caso contrario el código será el 404 al no haber encontrado el coche que queremos borrar.
 
 
@@ -49,10 +49,10 @@ Estas funcionalidades corresponden a las: [[HU]Quiero poder anunciar los coches]
 - `nuevoAnuncio` en la ruta `/anuncio`. Utilizo el método POST para pasar los parámetros necesarios en forma de formulario. Si alguno de los parámetros es nulo, 
 devuelve un error 400. En el caso de que se realice la petición correctamente el código devuelto será el 201.
 
-- `buscarAnuncio` en la ruta `/anuncio/buscar`. Utilizo el método GET y le paso los parámetros para la búsqueda. Si se ha encontrado el anuncio se devuelven sus datos con el 
+- `buscarAnuncio` en la ruta `/anuncio`. Utilizo el método GET y le paso los parámetros para la búsqueda. Si se ha encontrado el anuncio se devuelven sus datos con el 
 código 200. En el caso de no encontrar un anuncio con esos parámetros el código será el 404.
 
-- `borrarAnuncio` en la ruta `/anuncio/borrar`. Utilizo el método DELETE y le paso el parámetros del anuncio a borrar. Se busca si existe un anuncio con esas características y 
+- `borrarAnuncio` en la ruta `/anuncio`. Utilizo el método DELETE y le paso el parámetros del anuncio a borrar. Se busca si existe un anuncio con esas características y 
 si es así se elimina. De llevarse a cabo correctamente obtendremos un código 201, en el caso contrario el código será el 404 al no haber encontrado el anuncio que queremos 
 borrar.
 
@@ -69,9 +69,9 @@ func newApp() *iris.Application {
 	usuario := app.Party("/usuario")
 	{
 		usuario.Post("", nuevoUsuario)
-		usuario.Get("/buscar/{user}", buscarUsuario)
-		usuario.Put("/modificar", modificarUsuario)
-		usuario.Delete("/borrar/{user}", borrarUsuario)
+		usuario.Get("/{user}", buscarUsuario)
+		usuario.Put("", modificarUsuario)
+		usuario.Delete("/{user}", borrarUsuario)
 	}
       return app
 }
