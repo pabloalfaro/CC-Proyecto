@@ -12,13 +12,13 @@ ENV UID=12345
 RUN adduser \
     --disabled-password \
     --gecos "" \
-    --home "/nonexistent" \
     --shell "/sbin/nologin" \
-    --no-create-home \
     --uid "${UID}" \
     "$USER"
  
 RUN mkdir -p app/test
+
+USER "$USER"
 
 WORKDIR /app/test
 
