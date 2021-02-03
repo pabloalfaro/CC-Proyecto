@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"github.com/pabloalfaro/Car-finder/src/usuario"
 	"github.com/pabloalfaro/Car-finder/src/coche"
-	//"github.com/pabloalfaro/Car-finder/src/anuncio"
+	"github.com/pabloalfaro/Car-finder/src/anuncio"
 	"github.com/pabloalfaro/Car-finder/src/controlador"
 )
 
@@ -227,37 +227,37 @@ func nuevoCoche(ctx iris.Context){
 
 
 func buscarCoche(ctx iris.Context){
-	if ctx.URLParam("marca") == ""{
+	if ctx.FormValue("marca") == ""{
     	log.Print("Valor de marca nulo.\n")
     	log.Print("No se ha registrado el coche.\n")
     	ctx.StatusCode(400)
     	return
     }
-	ma := ctx.URLParam("marca") 
+	ma := ctx.FormValue("marca") 
     
-	if ctx.URLParam("modelo") == ""{
+	if ctx.FormValue("modelo") == ""{
     	log.Print("Valor de modelo nulo.\n")
     	log.Print("No se ha registrado el coche.\n")
     	ctx.StatusCode(400)
     	return
     }
-	mo := ctx.URLParam("modelo")    
+	mo := ctx.FormValue("modelo")    
 
-	if ctx.URLParam("serie") == ""{
+	if ctx.FormValue("serie") == ""{
     	log.Print("Valor de serie nulo.\n")
     	log.Print("No se ha registrado el coche.\n")
     	ctx.StatusCode(400)
     	return
     }
-	se := ctx.URLParam("serie")
+	se := ctx.FormValue("serie")
 
-	if ctx.URLParam("potencia") == ""{
+	if ctx.FormValue("potencia") == ""{
     	log.Print("Valor de potencia nulo.\n")
     	log.Print("No se ha registrado el coche.\n")
     	ctx.StatusCode(400)
     	return
     }
-	po, err:= strconv.Atoi(ctx.URLParam("potencia"))
+	po, err:= strconv.Atoi(ctx.FormValue("potencia"))
 	if err != nil{
 		log.Print("Valor de potencia incorrecto.\n")
     	log.Print("No se ha registrado el coche.\n")
@@ -265,15 +265,16 @@ func buscarCoche(ctx iris.Context){
     	return
 	}
 	
-	_, res := cont.BuscarCoche(ma, mo, se, po)
+	car, res := cont.BuscarCoche(ma, mo, se, po)
 	if res{
 		log.Print("Se ha encontrado el coche.\n")
 		ctx.StatusCode(200)
 		ctx.JSON(iris.Map{
-			"marca": ma,
-			"modelo": mo,
-			"serie": se,
-			"potencia": po,
+			"id": coche.GetId(car),
+			"marca": coche.GetMarca(car),
+			"modelo": coche.GetModelo(car),
+			"serie": coche.GetSerie(car),
+			"potencia": coche.GetPotencia(car),
 		})
 		return
 	}else{
@@ -286,45 +287,15 @@ func buscarCoche(ctx iris.Context){
 
 
 func borrarCoche(ctx iris.Context){
-	if ctx.URLParam("marca") == ""{
-    	log.Print("Valor de marca nulo.\n")
-    	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	ma := ctx.URLParam("marca") 
-    
-	if ctx.URLParam("modelo") == ""{
-    	log.Print("Valor de modelo nulo.\n")
-    	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	mo := ctx.URLParam("modelo")    
-
-	if ctx.URLParam("serie") == ""{
-    	log.Print("Valor de serie nulo.\n")
-    	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	se := ctx.URLParam("serie")
-
-	if ctx.URLParam("potencia") == ""{
-    	log.Print("Valor de potencia nulo.\n")
-    	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	po, err:= strconv.Atoi(ctx.URLParam("potencia"))
+	id, err:= strconv.Atoi(ctx.FormValue("id"))
 	if err != nil{
-		log.Print("Valor de potencia incorrecto.\n")
+		log.Print("Valor de id incorrecto.\n")
     	log.Print("No se ha registrado el coche.\n")
     	ctx.StatusCode(400)
     	return
 	}
 	
-	res := cont.BorrarCoche(ma, mo, se, po)
+	res := cont.BorrarCoche(id)
 	if res{
 		log.Print("Se ha encontrado el coche.\n")
 		log.Print("Se ha eliminado el coche correctamente.")
@@ -363,41 +334,112 @@ func nuevoAnuncio(ctx iris.Context){
     	ctx.StatusCode(400)
     	return
 	}
+	preF := float32(pre)   
+
+	if ctx.FormValue("coche") == ""{
+    	log.Print("Valor de coche nulo.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+    }
+	car, err:= strconv.Atoi(ctx.FormValue("coche"))
+	if err != nil{
+		log.Print("Valor de coche incorrecto.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+	}
+	
+	if ctx.FormValue("km") == ""{
+    	log.Print("Valor de km nulo.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+    }
+	km, err:= strconv.Atoi(ctx.FormValue("km"))
+	if err != nil{
+		log.Print("Valor de km incorrecto.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+	}
+	
+	if ctx.FormValue("estado") == ""{
+    	log.Print("Valor de estado nulo.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+    }
+	es := ctx.FormValue("estado")
+	
+	if ctx.FormValue("ciudad") == ""{
+    	log.Print("Valor de ciudad nulo.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+    }
+	ci := ctx.FormValue("ciudad")
+	
+	if ctx.FormValue("descripcion") == ""{
+    	log.Print("Valor de descripcion nulo.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+    }
+	des := ctx.FormValue("descripcion")
+	
+	if ctx.FormValue("color") == ""{
+    	log.Print("Valor de color nulo.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+    }
+	col := ctx.FormValue("color")
+	
+	r := cont.NuevoAnuncio(u, preF, car, km, es, ci, des, col)
+	
+	if r {
+		ctx.StatusCode(201)
+		
+		log.Print("Se ha registrado el anuncio con éxito.\n")
+		return
+	}else{
+		ctx.StatusCode(400)
+		log.Print("El usuario no estaba registrado.\n")
+		log.Print("No se ha registrado el anuncio con éxito.\n")
+		return
+	}
+}
+
+
+
+func buscarAnuncio(ctx iris.Context){
+	if ctx.FormValue("usuario") == ""{
+    	log.Print("Valor de usuario nulo.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+    }
+    u := ctx.FormValue("usuario")
+    
+    if ctx.FormValue("precio") == ""{
+    	log.Print("Valor de precio nulo.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+    }
+    pre, err := strconv.ParseFloat(ctx.FormValue("precio"), 32)
+    if err != nil{
+		log.Print("Valor de precio incorrecto.\n")
+    	log.Print("No se ha registrado el anuncio.\n")
+    	ctx.StatusCode(400)
+    	return
+	}
 	preF := float32(pre)
 	
-	if ctx.FormValue("marca") == ""{
-    	log.Print("Valor de marca nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	ma := ctx.FormValue("marca") 
-    
-	if ctx.FormValue("modelo") == ""{
-    	log.Print("Valor de modelo nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	mo := ctx.FormValue("modelo")    
-
-	if ctx.FormValue("serie") == ""{
-    	log.Print("Valor de serie nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	se := ctx.FormValue("serie")
-
-	if ctx.FormValue("potencia") == ""{
-    	log.Print("Valor de potencia nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	po, err:= strconv.Atoi(ctx.FormValue("potencia"))
+	car, err:= strconv.Atoi(ctx.FormValue("coche"))
 	if err != nil{
-		log.Print("Valor de potencia incorrecto.\n")
+		log.Print("Valor de coche incorrecto.\n")
     	log.Print("No se ha registrado el anuncio.\n")
     	ctx.StatusCode(400)
     	return
@@ -450,149 +492,21 @@ func nuevoAnuncio(ctx iris.Context){
 	col := ctx.FormValue("color")
 	
 	
-	car := coche.NewCoche(ma, mo, se, po)
-	r := cont.NuevoAnuncio(u, preF, car, km, es, ci, des, col)
-	
-	if r {
-		ctx.StatusCode(201)
-		
-		log.Print("Se ha registrado el anuncio con éxito.\n")
-		return
-	}else{
-		ctx.StatusCode(400)
-		log.Print("El usuario no estaba registrado.\n")
-		log.Print("No se ha registrado el anuncio con éxito.\n")
-		return
-	}
-}
-
-
-
-func buscarAnuncio(ctx iris.Context){
-	if ctx.URLParam("usuario") == ""{
-    	log.Print("Valor de usuario nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-    u := ctx.URLParam("usuario")
-    
-    if ctx.URLParam("precio") == ""{
-    	log.Print("Valor de precio nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-    pre, err := strconv.ParseFloat(ctx.URLParam("precio"), 32)
-    if err != nil{
-		log.Print("Valor de precio incorrecto.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-	}
-	preF := float32(pre)
-	
-	if ctx.URLParam("marca") == ""{
-    	log.Print("Valor de marca nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	ma := ctx.URLParam("marca") 
-    
-	if ctx.URLParam("modelo") == ""{
-    	log.Print("Valor de modelo nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	mo := ctx.URLParam("modelo")    
-
-	if ctx.URLParam("serie") == ""{
-    	log.Print("Valor de serie nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	se := ctx.URLParam("serie")
-
-	if ctx.URLParam("potencia") == ""{
-    	log.Print("Valor de potencia nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	po, err:= strconv.Atoi(ctx.URLParam("potencia"))
-	if err != nil{
-		log.Print("Valor de potencia incorrecto.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-	}
-	
-	if ctx.URLParam("km") == ""{
-    	log.Print("Valor de km nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	km, err:= strconv.Atoi(ctx.URLParam("km"))
-	if err != nil{
-		log.Print("Valor de km incorrecto.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-	}
-	
-	if ctx.URLParam("estado") == ""{
-    	log.Print("Valor de estado nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	es := ctx.URLParam("estado")
-	
-	if ctx.URLParam("ciudad") == ""{
-    	log.Print("Valor de ciudad nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	ci := ctx.URLParam("ciudad")
-	
-	if ctx.URLParam("descripcion") == ""{
-    	log.Print("Valor de descripcion nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	des := ctx.URLParam("descripcion")
-	
-	if ctx.FormValue("color") == ""{
-    	log.Print("Valor de color nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	col := ctx.URLParam("color")
-	
-	
-	car := coche.NewCoche(ma, mo, se, po)
 	index, res := cont.BuscarAnuncio(u, preF, car, km, es, ci, des, col)
 	
-	log.Print("Este es el indice: ", index)
 	if res{
 		log.Print("Se ha encontrado el coche.\n")
 		ctx.StatusCode(200)
 		ctx.JSON(iris.Map{
-			"usuario": u,
-			"precio": preF,
-			"coche": car,
-			"kilometros": km,
-			"estado": es,
-			"ciudad": ci,
-			"descripcion": des,
-			"color": col,
+			"id": anuncio.GetId(index),
+			"usuario": anuncio.GetUsuario(index),
+			"precio": anuncio.GetPrecio(index),
+			"coche": anuncio.GetCoche(index),
+			"kilometros": anuncio.GetKm(index),
+			"estado": anuncio.GetEstado(index),
+			"ciudad": anuncio.GetCiudad(index),
+			"descripcion": anuncio.GetDescripcion(index),
+			"color": anuncio.GetColor(index),
 		})
 		return
 	}else{
@@ -605,116 +519,21 @@ func buscarAnuncio(ctx iris.Context){
 
 
 func borrarAnuncio(ctx iris.Context){
-	if ctx.URLParam("usuario") == ""{
-    	log.Print("Valor de usuario nulo.\n")
+	if ctx.FormValue("id") == ""{
+    	log.Print("Valor de id nulo.\n")
     	log.Print("No se ha registrado el anuncio.\n")
     	ctx.StatusCode(400)
     	return
     }
-    u := ctx.URLParam("usuario")
-    
-    if ctx.URLParam("precio") == ""{
-    	log.Print("Valor de precio nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-    pre, err := strconv.ParseFloat(ctx.URLParam("precio"), 32)
-    if err != nil{
-		log.Print("Valor de precio incorrecto.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-	}
-	preF := float32(pre)
-	
-	if ctx.URLParam("marca") == ""{
-    	log.Print("Valor de marca nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	ma := ctx.URLParam("marca") 
-    
-	if ctx.URLParam("modelo") == ""{
-    	log.Print("Valor de modelo nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	mo := ctx.URLParam("modelo")    
-
-	if ctx.URLParam("serie") == ""{
-    	log.Print("Valor de serie nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	se := ctx.URLParam("serie")
-
-	if ctx.URLParam("potencia") == ""{
-    	log.Print("Valor de potencia nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	po, err:= strconv.Atoi(ctx.URLParam("potencia"))
+	id, err:= strconv.Atoi(ctx.FormValue("id"))
 	if err != nil{
-		log.Print("Valor de potencia incorrecto.\n")
+		log.Print("Valor de id incorrecto.\n")
     	log.Print("No se ha registrado el anuncio.\n")
     	ctx.StatusCode(400)
     	return
 	}
 	
-	if ctx.URLParam("km") == ""{
-    	log.Print("Valor de km nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	km, err:= strconv.Atoi(ctx.URLParam("km"))
-	if err != nil{
-		log.Print("Valor de km incorrecto.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-	}
-	
-	if ctx.URLParam("estado") == ""{
-    	log.Print("Valor de estado nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	es := ctx.URLParam("estado")
-	
-	if ctx.URLParam("ciudad") == ""{
-    	log.Print("Valor de ciudad nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	ci := ctx.URLParam("ciudad")
-	
-	if ctx.URLParam("descripcion") == ""{
-    	log.Print("Valor de descripcion nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	des := ctx.URLParam("descripcion")
-	
-	if ctx.FormValue("color") == ""{
-    	log.Print("Valor de color nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	col := ctx.URLParam("color")
-	
-	
-	car := coche.NewCoche(ma, mo, se, po)
-	res := cont.BorrarAnuncio(u, preF, car, km, es, ci, des, col)
+	res := cont.BorrarAnuncio(id)
 	if res{
 		log.Print("Se ha encontrado el anuncio.\n")
 		log.Print("Se ha eliminado el anuncio correctamente.")

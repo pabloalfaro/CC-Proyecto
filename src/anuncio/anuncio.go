@@ -1,11 +1,10 @@
 package anuncio
 
-import "github.com/pabloalfaro/Car-finder/src/coche"
-
 type Anuncio struct {
+	id					int
 	usuario     string
 	precio      float32
-	coche       coche.Coche
+	coche       int
 	km          int
 	estado      string
 	ciudad      string
@@ -14,9 +13,10 @@ type Anuncio struct {
 }
 
 //Constructor anuncio
-func NewAnuncio(u string, p float32, coc coche.Coche, k int, e string, ciu string, d string, col string) Anuncio {
+func NewAnuncio(id int, u string, p float32, coc int, k int, e string, ciu string, d string, col string) Anuncio {
 	var anuncio Anuncio
 
+	anuncio.id = id
 	anuncio.usuario = u
 	anuncio.precio = p
 	anuncio.coche = coc
@@ -29,6 +29,14 @@ func NewAnuncio(u string, p float32, coc coche.Coche, k int, e string, ciu strin
 	return anuncio
 }
 
+func GetId(a Anuncio) int {
+	return a.id
+}
+
+func GetUsuario(a Anuncio) string {
+	return a.usuario
+}
+
 //Get y set para Precio
 func GetPrecio(a Anuncio) float32 {
 	return a.precio
@@ -39,7 +47,7 @@ func SetPrecio(a Anuncio, p float32) {
 }
 
 //Get para Coche
-func GetCoche(a Anuncio) coche.Coche {
+func GetCoche(a Anuncio) int {
 	return a.coche
 }
 
