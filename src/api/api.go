@@ -28,15 +28,15 @@ func newApp() *iris.Application {
 	coche := app.Party("/coche")
 	{
 		coche.Post("", nuevoCoche)
-		coche.Get("", buscarCoche)
-		coche.Delete("", borrarCoche)
+		coche.Get("/{car}", buscarCoche)
+		coche.Delete("/{car}", borrarCoche)
 	}
 	
 	anuncio := app.Party("/anuncio")
 	{
 		anuncio.Post("", nuevoAnuncio)
-		anuncio.Get("", buscarAnuncio)
-		anuncio.Delete("", borrarAnuncio)
+		anuncio.Get("/{add}", buscarAnuncio)
+		anuncio.Delete("/{add}", borrarAnuncio)
 	}
 	
     return app
@@ -227,45 +227,14 @@ func nuevoCoche(ctx iris.Context){
 
 
 func buscarCoche(ctx iris.Context){
-	if ctx.FormValue("marca") == ""{
-    	log.Print("Valor de marca nulo.\n")
-    	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	ma := ctx.FormValue("marca") 
-    
-	if ctx.FormValue("modelo") == ""{
-    	log.Print("Valor de modelo nulo.\n")
-    	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	mo := ctx.FormValue("modelo")    
-
-	if ctx.FormValue("serie") == ""{
-    	log.Print("Valor de serie nulo.\n")
-    	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	se := ctx.FormValue("serie")
-
-	if ctx.FormValue("potencia") == ""{
-    	log.Print("Valor de potencia nulo.\n")
-    	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	po, err:= strconv.Atoi(ctx.FormValue("potencia"))
+	id, err:= strconv.Atoi(ctx.Params().Get("car"))
 	if err != nil{
-		log.Print("Valor de potencia incorrecto.\n")
-    	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(400)
-    	return
+		log.Print("Valor de id incorrecto.\n")
+  	log.Print("No se ha encontrado el coche.\n")
+  	ctx.StatusCode(400)
+  	return
 	}
-	
-	car, res := cont.BuscarCoche(ma, mo, se, po)
+	car, res := cont.BuscarCoche(id)
 	if res{
 		log.Print("Se ha encontrado el coche.\n")
 		ctx.StatusCode(200)
@@ -287,12 +256,12 @@ func buscarCoche(ctx iris.Context){
 
 
 func borrarCoche(ctx iris.Context){
-	id, err:= strconv.Atoi(ctx.FormValue("id"))
+	id, err:= strconv.Atoi(ctx.Params().Get("car"))
 	if err != nil{
 		log.Print("Valor de id incorrecto.\n")
-    	log.Print("No se ha registrado el coche.\n")
-    	ctx.StatusCode(400)
-    	return
+  	log.Print("No se ha borrado el coche.\n")
+  	ctx.StatusCode(400)
+  	return
 	}
 	
 	res := cont.BorrarCoche(id)
@@ -414,88 +383,18 @@ func nuevoAnuncio(ctx iris.Context){
 
 
 func buscarAnuncio(ctx iris.Context){
-	if ctx.FormValue("usuario") == ""{
-    	log.Print("Valor de usuario nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-    u := ctx.FormValue("usuario")
-    
-    if ctx.FormValue("precio") == ""{
-    	log.Print("Valor de precio nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-    pre, err := strconv.ParseFloat(ctx.FormValue("precio"), 32)
-    if err != nil{
-		log.Print("Valor de precio incorrecto.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-	}
-	preF := float32(pre)
-	
-	car, err:= strconv.Atoi(ctx.FormValue("coche"))
+	id, err:= strconv.Atoi(ctx.Params().Get("add"))
 	if err != nil{
-		log.Print("Valor de coche incorrecto.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
+		log.Print("Valor de id incorrecto.\n")
+  	log.Print("No se ha encontrado el coche.\n")
+  	ctx.StatusCode(400)
+  	return
 	}
 	
-	if ctx.FormValue("km") == ""{
-    	log.Print("Valor de km nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	km, err:= strconv.Atoi(ctx.FormValue("km"))
-	if err != nil{
-		log.Print("Valor de km incorrecto.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-	}
-	
-	if ctx.FormValue("estado") == ""{
-    	log.Print("Valor de estado nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	es := ctx.FormValue("estado")
-	
-	if ctx.FormValue("ciudad") == ""{
-    	log.Print("Valor de ciudad nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	ci := ctx.FormValue("ciudad")
-	
-	if ctx.FormValue("descripcion") == ""{
-    	log.Print("Valor de descripcion nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	des := ctx.FormValue("descripcion")
-	
-	if ctx.FormValue("color") == ""{
-    	log.Print("Valor de color nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
-    	ctx.StatusCode(400)
-    	return
-    }
-	col := ctx.FormValue("color")
-	
-	
-	index, res := cont.BuscarAnuncio(u, preF, car, km, es, ci, des, col)
+	index, res := cont.BuscarAnuncio(id)
 	
 	if res{
-		log.Print("Se ha encontrado el coche.\n")
+		log.Print("Se ha encontrado el anuncio.\n")
 		ctx.StatusCode(200)
 		ctx.JSON(iris.Map{
 			"id": anuncio.GetId(index),
@@ -519,13 +418,13 @@ func buscarAnuncio(ctx iris.Context){
 
 
 func borrarAnuncio(ctx iris.Context){
-	if ctx.FormValue("id") == ""{
+	if ctx.Params().Get("add") == ""{
     	log.Print("Valor de id nulo.\n")
-    	log.Print("No se ha registrado el anuncio.\n")
+    	log.Print("No se ha encontrado el anuncio.\n")
     	ctx.StatusCode(400)
     	return
     }
-	id, err:= strconv.Atoi(ctx.FormValue("id"))
+	id, err:= strconv.Atoi(ctx.Params().Get("add"))
 	if err != nil{
 		log.Print("Valor de id incorrecto.\n")
     	log.Print("No se ha registrado el anuncio.\n")
