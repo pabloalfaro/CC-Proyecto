@@ -13,7 +13,7 @@ func TestUsuario(t *testing.T) {
     log.Print("TEST 1: CREAR USUARIO.")
  
     e.POST("/usuario").
-    	WithFormField("username", "PabloAG").
+    	WithFormField("username", "PabloA").
     	WithFormField("nombre", "Pablo").
     	WithFormField("apellido", "Alfaro").
     	WithFormField("correo", "ejemplo@correo.com").
@@ -70,13 +70,9 @@ func TestCoche(t *testing.T) {
     
     log.Print("TEST 2: BUSCAR COCHE.")
     	
-    r:= e.GET("/coche").
-		WithQuery("marca", "Audi").
-    	WithQuery("modelo", "A4").
-    	WithQuery("serie", "S").
-    	WithQuery("potencia", "180").
-		Expect().Status(200).
-		JSON().Object()
+    r:= e.GET("/coche/{car}", "1").
+			Expect().Status(200).
+			JSON().Object()
     		
     r.Value("marca").Equal("Audi")
     r.Value("modelo").Equal("A4")
@@ -86,11 +82,7 @@ func TestCoche(t *testing.T) {
     	
     log.Print("TEST 3: BORRAR COCHE.")
     
-    e.DELETE("/coche").
-    	WithQuery("marca", "Audi").
-    	WithQuery("modelo", "A4").
-    	WithQuery("serie", "S").
-    	WithQuery("potencia", "180").
+    e.DELETE("/coche/{car}", "1").
     	Expect().Status(200)
     
 }
@@ -114,60 +106,34 @@ func TestAnuncio(t *testing.T) {
     e.POST("/anuncio").
     	WithFormField("usuario", "PabloA").
     	WithFormField("precio", "10000").
-    	WithFormField("marca", "Audi").
-    	WithFormField("modelo", "A4").
-    	WithFormField("serie", "S").
-    	WithFormField("potencia", "180").
+    	WithFormField("coche", "1").
     	WithFormField("km", "50000").
     	WithFormField("estado", "Bueno").
     	WithFormField("ciudad", "Pamplona").
-    	WithFormField("descripcion", "PabloA").
+    	WithFormField("descripcion", "Desc").
     	WithFormField("color", "negro").
     	Expect().Status(201)
     	
     	
     log.Print("TEST 2: BUSCAR ANUNCIO.")
-    /*
-    r:= e.GET("/anuncio").
-		WithQuery("usuario", "PabloA").
-    	WithQuery("precio", "10000").
-    	WithQuery("marca", "Audi").
-    	WithQuery("modelo", "A4").
-    	WithQuery("serie", "S").
-    	WithQuery("potencia", "180").
-    	WithQuery("km", "50000").
-    	WithQuery("estado", "Bueno").
-    	WithQuery("ciudad", "Pamplona").
-    	WithQuery("descripcion", "Desc").
-    	WithQuery("color", "negro").
-		Expect().Status(200).
-		JSON().Object()
+    
+   	r := e.GET("/anuncio/{add}", "1").
+			Expect().Status(200).
+			JSON().Object()
     	
-    r.Value("potencia").Equal(180)
+    r.Value("id").Equal(1)
     r.Value("usuario").Equal("PabloA")
-	r.Value("precio").Equal("10000")
-	r.Value("kilometros").Equal(50000)
-	r.Value("estado").Equal("Bueno")
-	r.Value("ciudad").Equal("Pamplona")
-	r.Value("descripcion").Equal("Desc")
-	r.Value("color").Equal("negro")
-   */
+		r.Value("precio").Equal(10000)
+		r.Value("kilometros").Equal(50000)
+		r.Value("estado").Equal("Bueno")
+		r.Value("ciudad").Equal("Pamplona")
+		r.Value("descripcion").Equal("Desc")
+		r.Value("color").Equal("negro")
+   
    
    
     log.Print("TEST 3: BORRAR ANUNCIO.")
-    /*
-    e.DELETE("/anuncio").
-    	WithQuery("usuario", "PabloA").
-    	WithQuery("precio", "10000").
-    	WithQuery("marca", "Audi").
-    	WithQuery("modelo", "A4").
-    	WithQuery("serie", "S").
-    	WithQuery("potencia", "180").
-    	WithQuery("km", "50000").
-    	WithQuery("estado", "Bueno").
-    	WithQuery("ciudad", "Pamplona").
-    	WithQuery("descripcion", "Desc").
-    	WithQuery("color", "negro").
+    
+    e.DELETE("/anuncio/{add}", "1").
     	Expect().Status(200)
-    */
 }

@@ -59,7 +59,6 @@ func (cont *Controlador) NuevoUsuario(u string, n string, a string, co string, c
 			var user usuario.Usuario
 			user = usuario.NewUsuario(u, n, a, co, ci)
 			cont.usuarios[u] = user
-
 			//Se ha podido hacer la inserción
 			return true
 		}
@@ -87,7 +86,13 @@ func (cont *Controlador) BuscarUsuario(u string) (usuario.Usuario, bool) {
 	err = row.Scan(&u, &n, &a, &co, &ci) 
 	if err != nil{
 			log.Print(err.Error())
-			return user, false
+			user, ok := cont.usuarios[u]
+			//Si la variable ok es igual a true entonces el username ya está registrado
+			if ok {
+				return user, true
+			} else {
+				return user, true
+			}
 		}else{
 		user = usuario.NewUsuario(u, n, a, co, ci)
 		return user, true
@@ -117,7 +122,19 @@ func (cont *Controlador) ModificarUsuario(u string, n string, a string, co strin
 		_, err := db.Exec(consulta)
 		if err!=nil{
 			log.Print(err.Error())
-			return false
+			if n != ""{
+				usuario.SetNombre(user, n)
+			}
+			if a != ""{
+				usuario.SetNombre(user, a)
+			}
+			if co != ""{
+				usuario.SetNombre(user, co)
+			}
+			if ci != ""{
+				usuario.SetNombre(user, ci)
+			}
+			return true
 		}
 		return true
 	}
@@ -130,7 +147,14 @@ func (cont *Controlador) BorrarUsuario(u string) (bool) {
 	_, err := db.Exec(consulta)
 	if err!=nil{
 		log.Print(err.Error())
-		return false
+		_, ok := cont.usuarios[u]
+	
+		if ok {
+			delete(cont.usuarios, u)
+			return true
+		}else{
+			return false
+		}
 	}
 	return true
 }
@@ -142,7 +166,17 @@ func (cont *Controlador) NuevoCoche(ma string, mo string, se string, po int) boo
 	insert, err := db.Query(consulta)
 	if err != nil {
 		log.Print(err.Error())
-		return false
+		_, r := cont.BuscarCoche(1)
+	
+		if !r {
+			var car coche.Coche
+
+			car = coche.NewCoche(1, ma, mo, se, po)
+			cont.coches[1] =  car
+			return true
+		}else{
+			return false
+		}
 	}
 	defer insert.Close()
 
@@ -152,15 +186,22 @@ func (cont *Controlador) NuevoCoche(ma string, mo string, se string, po int) boo
 
 
 
-func (cont *Controlador) BuscarCoche(ma string, mo string, se string, po int) (coche.Coche, bool){
+func (cont *Controlador) BuscarCoche(id  int) (coche.Coche, bool){
 	var car coche.Coche
-	consulta := fmt.Sprintf("SELECT * FROM coches WHERE marca = '%s' AND modelo = '%s' AND serie = '%s' AND potencia = '%d'", ma,mo,se,po)
+	consulta := fmt.Sprintf("SELECT * FROM coches WHERE id = '%d'", id)
 	row:= db.QueryRow(consulta);
-	var id int
+	var ma, mo, se string
+	var po int
 	err = row.Scan(&id, &ma, &mo, &se, &po) 
 	if err != nil{
 			log.Print(err.Error())
-			return car, false
+			
+			car, ok := cont.coches[id]
+			if ok {
+				return car, true
+			} else {
+				return car, false
+			}
 		}else{
 		car = coche.NewCoche(id, ma, mo, se, po)
 		return car, true
@@ -174,7 +215,14 @@ func (cont *Controlador) BorrarCoche(id int) bool{
 	_, err := db.Exec(consulta)
 	if err!=nil{
 		log.Print(err.Error())
-		return false
+		_, ok := cont.coches[id]
+	
+		if ok {
+			delete(cont.coches, id)
+			return true
+		}else{
+			return false
+		}
 	}
 	return true
 }
@@ -204,16 +252,23 @@ func (cont *Controlador) NuevoAnuncio(u string, p float32, coc int, k int, e str
 
 
 
-func (cont *Controlador) BuscarAnuncio(u string, p float32, coc int, k int, e string, ciu string, d string, col string) (anuncio.Anuncio, bool){
+func (cont *Controlador) BuscarAnuncio(id int) (anuncio.Anuncio, bool){
 	var anun anuncio.Anuncio
-	consulta := fmt.Sprintf("SELECT * FROM anuncios WHERE usuario='%s' and precio='%g' and coche='%d' and km='%d' and estado='%s' and ciudad='%s' and  descripcion='%s' and color='%s';", u, p, coc, k, e, ciu, d, col)
-	log.Print(consulta)
+	consulta := fmt.Sprintf("SELECT * FROM anuncios WHERE id = '%d';", id)
 	row:= db.QueryRow(consulta);
-	var id int
+	var u, e, ciu, d, col string
+	var coc, k int
+	var p float32  
 	err = row.Scan(&id, &u, &p, &coc, &k, &e, &ciu, &d, &col) 
 	if err != nil{
 			log.Print(err.Error())
-			return anun, false
+			anun, ok := cont.anuncios[id]
+			if ok {
+				return anun, true
+			} else {
+				return anun, false
+			}
+			
 		}else{
 		anun = anuncio.NewAnuncio(id, u, p, coc, k, e, ciu, d, col)
 		return anun, true
@@ -227,7 +282,14 @@ func (cont *Controlador) BorrarAnuncio(id int) bool{
 	_, err := db.Exec(consulta)
 	if err!=nil{
 		log.Print(err.Error())
-		return false
+		_, ok := cont.anuncios[id]
+	
+		if ok {
+			delete(cont.anuncios, id)
+			return true
+		}else{
+			return false
+		}
 	}
 	return true
 }
