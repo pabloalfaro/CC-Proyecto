@@ -3,21 +3,27 @@ package coche
 //import "fmt"
 
 type Coche struct {
+	id			 int
 	marca    string
 	modelo   string
 	serie    string
 	potencia int
 }
 
-func NewCoche(ma string, mo string, s string, p int) Coche {
+func NewCoche(id int, ma string, mo string, s string, p int) Coche {
 	var coche Coche
 
+	coche.id = id
 	coche.marca = ma
 	coche.modelo = mo
 	coche.serie = s
 	coche.potencia = p
 
 	return coche
+}
+
+func GetId(c Coche) int {
+	return c.id
 }
 
 //Get para marca

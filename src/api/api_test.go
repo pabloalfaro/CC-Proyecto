@@ -13,7 +13,7 @@ func TestUsuario(t *testing.T) {
     log.Print("TEST 1: CREAR USUARIO.")
  
     e.POST("/usuario").
-    	WithFormField("username", "PabloA").
+    	WithFormField("username", "PabloAG").
     	WithFormField("nombre", "Pablo").
     	WithFormField("apellido", "Alfaro").
     	WithFormField("correo", "ejemplo@correo.com").
