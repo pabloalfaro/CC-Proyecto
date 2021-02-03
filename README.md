@@ -5,10 +5,7 @@
 Soy Pablo Alfaro, alumno de la asignatura de Cloud Computing del Máster en Ingeniería Informática de la Universidad de Granada. En este repositorio se encuentra el proyecto de la asignatura.
 
 ## Semana actual
-- [Justificacion del framework](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/framework%20para%20microservicios.md).
-- [Diseño de la api](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/api.md).
-- [Test de la api](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/test.md).
-- [Utilización de logs](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/log.md).
+
 
 ## Historias de usuario
 
@@ -25,7 +22,6 @@ En mi caso he pensado en 3 posibles usuarios, estos son:
 - [Tests unitarios](https://github.com/pabloalfaro/Car-finder/tree/main/src/controlador)
 - [PMV 1](https://github.com/pabloalfaro/Car-finder/milestone/3)
 - [PMV 2](https://github.com/pabloalfaro/Car-finder/milestone/4)
-- [Correciones para la reentrega](https://github.com/pabloalfaro/Car-finder/milestone/5)
 
 
 ## Contenido anterior
@@ -36,3 +32,7 @@ Aquí dejo los links a los contenidos de las semanas anteriores:
 - [Gestor de tareas, biblioteca de aserciones, marco de pruebas y la ejecución de los tests](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/tema3.md)
 - [Docker](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/tema4.md)
 - [Integración continua](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/tema5.md)
+- [Justificacion del framework](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/framework%20para%20microservicios.md).
+- [Diseño de la api](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/api.md).
+- [Test de la api](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/test.md).
+- [Utilización de logs](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/log.md).
