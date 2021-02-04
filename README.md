@@ -5,7 +5,10 @@
 Soy Pablo Alfaro, alumno de la asignatura de Cloud Computing del Máster en Ingeniería Informática de la Universidad de Granada. En este repositorio se encuentra el proyecto de la asignatura.
 
 ## Semana actual
-
+- [La estructura del clúster.](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/estructura_cl%C3%BAster.md)
+- [Contenedores que lo componen.](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/contenedores.md)
+- [Fichero de composición.](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/composici%C3%B3n.md)
+- [Test docker-compose.](https://github.com/pabloalfaro/Car-finder/blob/main/docs/Semanas%20anteriores/test_compose.md)
 
 ## Historias de usuario
 
