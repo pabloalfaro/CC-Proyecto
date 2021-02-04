@@ -7,14 +7,19 @@ import (
 	"bytes"
 	"mime/multipart"
 	"fmt"
+	"os/exec"
+	"time"
 )
 
 func main(){
+	inicio()
+	time.Sleep(10 * time.Second)
+	
 	url_u1 := "http://localhost:8080/usuario"
 	url_u2 := "http://localhost:8080/usuario/PabloG"
 	
 	url_c1 := "http://localhost:8080/coche"
-	url_c2 := "http://localhost:8080/coche/2"
+	url_c2 := "http://localhost:8080/coche/1"
 	
 	url_a1 := "http://localhost:8080/anuncio"
 	url_a2 := "http://localhost:8080/anuncio/1"
@@ -68,13 +73,13 @@ func main(){
   writer_a := multipart.NewWriter(payload_a)
   _ = writer_a.WriteField("usuario", "PabloG")
   _ = writer_a.WriteField("precio", "10000")
-  _ = writer_a.WriteField("coche", "1")
+  _ = writer_a.WriteField("coche", "2")
   _ = writer_a.WriteField("km", "100000")
   _ = writer_a.WriteField("estado", "Correcto")
   _ = writer_a.WriteField("ciudad", "Granada")
   _ = writer_a.WriteField("descripcion", "Audi en buen estado")
   _ = writer_a.WriteField("color", "Negro")
-  _ = writer_a.WriteField("id", "2")
+  _ = writer_a.WriteField("id", "1")
   err = writer_a.Close()
   if err != nil {
     fmt.Println(err)
@@ -82,13 +87,13 @@ func main(){
   }
 	
 	log.Print("---Añadir anuncio---")
-	//peticion(url_u1, "POST", payload_u, writer_u)
 	peticion(url_a1, "POST", payload_a, writer_a)
 	log.Print("---Buscar anuncio---")
 	peticion(url_a2, "GET", payload_a, writer_a)
 	log.Print("---Borrar anuncio---")
 	peticion(url_a2, "DELETE", payload_a, writer_a)
 	
+	fin()
 }
 
 func peticion (url string, cod string, payload *bytes.Buffer, writer *multipart.Writer){
@@ -118,5 +123,25 @@ func peticion (url string, cod string, payload *bytes.Buffer, writer *multipart.
 	respuestaString := string(cuerpoRespuesta)
 	log.Printf("Código de respuesta: %d", respuesta.StatusCode)
 	log.Printf("Cuerpo de respuesta del servidor: '%s'", respuestaString)
+}
+
+func inicio(){
+	prc := exec.Command("docker-compose", "up", "-d")
+	out := bytes.NewBuffer([]byte{})
+	prc.Stdout = out
+	err := prc.Run()
+	if err != nil {
+		fmt.Println(err)
+	}
+}
+
+func fin(){
+	prc := exec.Command("docker-compose", "stop")
+	out := bytes.NewBuffer([]byte{})
+	prc.Stdout = out
+	err := prc.Run()
+	if err != nil {
+		fmt.Println(err)
+	}
 }
 
