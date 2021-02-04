@@ -11,3 +11,4 @@ entidad:
 test:
   - src/controlador/controlador_test.go
   - src/api/api_test.go
+test-docker-compose: src/cliente/cliente.go
